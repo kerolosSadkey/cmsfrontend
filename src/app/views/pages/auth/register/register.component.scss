@@ -1,0 +1,27 @@
+:host {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bcolor{
+  background-color: #00cafd;
+  color: #fff;
+}
+.header{
+  padding: 10px;
+  border-top-left-radius:6px ;
+  border-top-right-radius:6px ;
+}
+.card{
+  border-top-left-radius:0px;
+  border-top-right-radius:0px ;
+}
+.divimg{
+margin:20px 0;
+  border-right:1px solid #eee;
+}
+.auth-page{
+  direction: ltr;
+}

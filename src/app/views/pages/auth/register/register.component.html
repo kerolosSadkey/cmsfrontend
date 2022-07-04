@@ -1,0 +1,71 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-7 col-xl-7 mx-auto mt-5 mb-5">
+    <div class="header bcolor text-center">
+          <h3>Sign Up</h3>
+    </div>
+    <div class="card">
+      <div class="row">
+        <div class="col-md-5 pe-md-0 divimg text-center">
+          <img src="https://streams-services.com/wp-content/uploads/2017/07/streams_logo_updated.png"  class=" h-50 w-50 mt-5">
+
+        </div>
+        <div class="col-md-7 ps-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+
+            <h5 class="text-muted fw-normal mb-3">Create a free account.</h5>
+            <form class="forms-sample">
+              <div class="mb-2">
+                <label for="exampleInputUsername1" class="form-label">Full name</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Fullname">
+              </div>
+
+              <div class="row">
+                <div class="mb-2 col-4 d-inline">
+                  <label for="exampleInputUsername1" class="form-label">Country code</label>
+                  <select class="form-control " id="exampleInputUsername1" autocomplete="Countrycode" placeholder="Country code">
+                    <option>012</option>
+                    <option>011</option>
+                  </select>
+
+
+                </div>
+                <div class="mb-2 col-8 d-inline">
+                  <label for="exampleInputUsername1" class="form-label">Phone Number</label>
+
+                  <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="phone">
+
+                </div>
+
+              </div>
+
+              <div class="mb-2">
+                <label for="exampleInputUsername1" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
+              </div>
+
+              <div class="mb-2">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="mb-2">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password">
+              </div>
+              <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="authCheck">
+                <label class="form-check-label" for="authCheck">
+                  Remember me
+                </label>
+              </div>
+              <div class="mx-auto">
+                <button type="submit" class="btn bcolor me-2 mb-2 mb-md-0 w-50 " (click)="onRegister($event)">Sign up</button>
+
+              </div>
+              <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? Sign in</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

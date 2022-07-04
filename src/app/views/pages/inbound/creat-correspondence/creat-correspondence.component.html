@@ -1,0 +1,76 @@
+
+
+<div class="head ">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
+       aria-controls="nav-home" aria-selected="true">مسح  <i class="fa-solid fa-qrcode"></i></a>
+      <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
+       aria-controls="nav-profile" aria-selected="false">المرفقات <i class="fa-solid fa-paperclip"></i></a>
+      <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">بيانات الادخال  <i class="fa-solid fa-address-card"></i></a>
+      <a class="nav-link" id="nav-contact1-tab" data-bs-toggle="tab" href="#nav-contact1" role="tab" aria-controls="nav-contact1" aria-selected="false">فاكس  <i class="fa-solid fa-fax"></i></a>
+      <a class="nav-link" id="nav-contact2-tab" data-bs-toggle="tab" href="#nav-contact2" role="tab" aria-controls="nav-contact2" aria-selected="false">Contact</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+
+
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+      <div class="mt-5">
+
+        <div class="text-center">
+          <h2>مسح وثائق</h2>
+          <p class="lead">تاكد من وجود <b>ماسح ضوئي</b></p>
+        </div>
+
+
+        <!-- Upload  -->
+        <form id="file-upload-form" class="uploader">
+          <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+          <label for="file-upload" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <div id="start">
+              <i class="fa-solid fa-qrcode qrfile"></i>
+              <div>مسح وثائق </div>
+              <div id="notimage" class="hidden">اختار وثائق ثم مسح</div>
+              <span id="file-upload-btn" class="btn btn-primary">مسح وثائق</span>
+            </div>
+            <div id="response" class="hidden">
+              <div id="messages"></div>
+              <progress class="progress" id="file-progress" value="0">
+                <span>0</span>%
+              </progress>
+            </div>
+          </label>
+        </form>
+      </div>
+
+    </div>
+
+
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <p>clicked profile</p>
+      <p>clicked profile</p>
+      <p>clicked profile</p>
+      <i class="fa-solid fa-scanner"></i>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <p>clicked contact</p>
+      <p>clicked contact</p>
+      <p>clicked contact</p>
+    </div>
+    <div class="tab-pane fade" id="nav-contact1" role="tabpanel" aria-labelledby="nav-contact1-tab">
+      <p>clicked contact1</p>
+      <p>clicked contact2</p>
+      <p>clicked contact3</p>
+    </div>
+    <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact2-tab">
+      <p>clicked contact21</p>
+      <p>clicked contact</p>
+      <p>clicked contact</p>
+    </div>
+  </div>
+</div>
+
