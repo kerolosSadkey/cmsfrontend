@@ -13,7 +13,7 @@
           <div class="auth-form-wrapper px-4 py-5">
 
             <h5 class="text-muted fw-normal mb-3">Create a free account.</h5>
-            <form class="forms-sample">
+            <form class="forms-sample" [formGroup]="formdata">
               <div class="mb-2">
                 <label for="exampleInputUsername1" class="form-label">Full name</label>
                 <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Fullname">
@@ -49,7 +49,34 @@
               </div>
               <div class="mb-2">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password">
+                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password">
+                <div *ngIf="password?.invalid && (password.dirty|| password?.touched)" class="text text-danger">
+                  <span *ngIf="password.errors?.['required']">
+                    Password  is required
+                  </span>
+                  <span *ngIf="password.errors?.['minlength']">
+                      Password is required at lest 6 charcaters
+                  </span>
+
+                  <span *ngIf="password?.errors?.['pattern']">
+                      Password should have at least one: Capital letter, small letter, number, special character
+                </span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                <input type="password" formControlName="confirm" class="form-control" id="exampleInputconfiram1" autocomplete="current-confiram" placeholder="confiram">
+                <div *ngIf="confirm?.invalid && (confirm.dirty|| confirm?.touched)" class="text text-danger">
+                  <span *ngIf="confirm.errors?.['required']">
+                    confirm password is required
+                  </span>
+                  <span *ngIf="!confirm.errors?.['noMatch']">
+                    {{confirm.errors?.['noMatch']}}
+                    confirm password  not match  password
+                  </span>
+
+
+                </div>
               </div>
               <div class="form-check mb-2">
                 <input type="checkbox" class="form-check-input" id="authCheck">
