@@ -51,10 +51,35 @@
 
 
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <p>clicked profile</p>
-      <p>clicked profile</p>
-      <p>clicked profile</p>
-      <i class="fa-solid fa-scanner"></i>
+      <div class="mt-5">
+
+        <div class="text-center">
+          <h2>اختار مرفقات</h2>
+          <p class="lead">تاكد من وجود <b>ماسح ضوئي</b></p>
+        </div>
+
+
+        <!-- Upload  -->
+        <form id="file-upload-form" class="uploader">
+          <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+          <label for="file-upload" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <div id="start">
+              <i class="fa fa-download qrfile" aria-hidden="true"></i>
+              <div>اختار مرفقات </div>
+              <div id="notimage" class="hidden">اختار مرفقات</div>
+              <span id="file-upload-btn" class="btn btn-primary">اختار مرفقات</span>
+            </div>
+            <div id="response" class="hidden">
+              <div id="messages"></div>
+              <progress class="progress" id="file-progress" value="0">
+                <span>0</span>%
+              </progress>
+            </div>
+          </label>
+        </form>
+      </div>
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
       <p>clicked contact</p>
