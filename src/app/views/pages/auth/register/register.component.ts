@@ -14,15 +14,27 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
 
     this.formdata = this.fb.group({
+      name: ['',[Validators.required]],
       email: ['',[Validators.email, Validators.required]],
+      phone: ['',[ Validators.required,Validators.maxLength(11)]],
+      username: ['',[Validators.required]],
       password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}`) ]],
       confirm: ["", [Validators.required]]
-  }, { validator: this.matchPassword2('password', 'confirm') });
+  }, { validator: [this.matchPassword('password', 'confirm') ]});
   }
 
+  get name(){
+    return this.formdata.get('name')!;
+    }
   get email(){
     return this.formdata.get("email")!;
     }
+    get phone(){
+      return this.formdata.get('phone')!;
+      }
+    get username(){
+      return this.formdata.get('username')!;
+      }
     get password(){
     return this.formdata.get('password')!;
     }
@@ -30,7 +42,8 @@ export class RegisterComponent implements OnInit {
       return this.formdata.get('confirm')!;
       }
 
-    matchPassword2(firstControl:string, secondControl:string): ValidatorFn {
+
+    matchPassword(firstControl:string, secondControl:string): ValidatorFn {
 
       return (control: AbstractControl): ValidationErrors | null => {
 
@@ -40,7 +53,7 @@ export class RegisterComponent implements OnInit {
         if (password != confirm) {
           console.log(password)
           console.log(confirm)
-           return { 'noMatch': true } }
+           return { noMatch: true } }
 
         return null
 

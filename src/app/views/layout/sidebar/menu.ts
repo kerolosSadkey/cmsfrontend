@@ -6,7 +6,7 @@ export const MENU: MenuItem[] = [
     isTitle: true
   },
   {
-    label: 'لوحة التحكم',
+    label: 'Dashboard',
     icon: 'home',
     link: '/dashboard'
   },
@@ -15,46 +15,34 @@ export const MENU: MenuItem[] = [
     isTitle: true
   },
   {
-    label: 'Inbound Correspondences',
+    label: 'Inbound',
     icon: 'mail',
     subItems: [
       {
-        label: 'Inbox',
-        link: '/apps/email/inbox',
+        label: 'External',
+        link: 'Inbound',
       },
       {
-        label: 'Read',
+        label: 'Internal',
         link: '/apps/email/read'
-      },
-      {
-        label: 'Compose',
-        link: '/apps/email/compose'
       },
     ]
   },
   {
-    label: 'Outbound Correspondences',
-    icon: 'mail',
+    label: 'Outbound',
+    icon: 'inbox',
     subItems: [
       {
-        label: 'Inbox',
+        label: 'External',
         link: '/apps/email/inbox',
       },
       {
-        label: 'Read',
+        label: 'Internal',
         link: '/apps/email/read'
-      },
-      {
-        label: 'Compose',
-        link: '/apps/email/compose'
       },
     ]
   },
-  {
-    label: 'Chat',
-    icon: 'message-square',
-    link: '/apps/chat',
-  },
+
   {
     label: 'Calendar',
     icon: 'calendar',
@@ -65,76 +53,51 @@ export const MENU: MenuItem[] = [
     }
   },
   {
-    label: 'Components',
-    isTitle: true
+    label: 'Task List',
+    icon: 'list',
+    link: '/tasklist',
+
+  },
+   {
+    label: 'Committees',
+    icon: 'git-commit',
+    link: '/apps/calendar',
+
+  },
+  {
+    label: 'Case Mangenment',
+    icon: 'briefcase',
+    link: '/apps/chat',
+  },
+  {
+    label: 'Work Places',
+    icon: 'columns',
+    link: '/apps/chat',
   },
 
   {
-    label: 'Tables',
+    label: 'Roports',
+    isTitle: true
+  },
+  {
+    label: 'Reports',
     icon: 'layout',
     subItems: [
       {
-        label: 'Basic tables',
+        label: 'Report 1',
         link: '/tables/basic-table',
       },
       {
-        label: 'Data table',
+        label: 'Report 2',
         link: '/tables/data-table',
       },
       {
-        label: 'Ngx-datatable',
+        label: 'Report 3',
         link: '/tables/ngx-datatable'
       }
     ]
   },
 
-  {
-    label: 'Pages',
-    isTitle: true
-  },
-  {
-    label: 'Special pages',
-    icon: 'book',
-    subItems: [
-      {
-        label: 'Blank page',
-        link: '/general/blank-page',
-      },
-      {
-        label: 'Faq',
-        link: '/general/faq',
-      },
-      {
-        label: 'Invoice',
-        link: '/general/invoice',
-      },
-      {
-        label: 'Profile',
-        link: '/general/profile',
-      },
-      {
-        label: 'Pricing',
-        link: '/general/pricing',
-      },
-      {
-        label: 'Timeline',
-        link: '/general/timeline',
-      }
-    ]
-  },
-  {
-    label: 'Authentication',
-    icon: 'unlock',
-    subItems: [
-      {
-        label: 'Login',
-        link: '/auth/login',
-      },
-      {
-        label: 'Register',
-        link: '/auth/register',
-      },
-    ]
-  },
+
 
 ];

@@ -37,7 +37,9 @@ const routes: Routes = [
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
       { path: 'Inbound', loadChildren: () => import('./views/pages/inbound/inbound.module').then(m => m.InboundModule) },
-      { path: '', redirectTo: 'Inbound', pathMatch: 'full' },
+
+      { path: 'tasklist', loadChildren: () => import('./views/pages/tasklist/tasklist.module').then(m => m.TasklistModule) },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
@@ -54,6 +56,7 @@ const routes: Routes = [
     path: 'error/:type',
     component: ErrorPageComponent
   },
+
 
   { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];

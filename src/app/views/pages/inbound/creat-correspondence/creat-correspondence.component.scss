@@ -7,7 +7,6 @@ a{
   padding: 10px;
   border: 1px solid #eee;
   border-radius: 8px;
-  width: 100%;
  overflow: hidden;
 }
 
@@ -164,5 +163,33 @@ h2,p{
     background: #00cafd;
     border-color:#00cafd;
     cursor: pointer;
+  }
+}
+.divfiled1
+{
+  border-right: 1px solid #ccc;
+}
+
+
+
+:host ::ng-deep .multiselect-dropdown .dropdown-btn {
+  display: inline-block;
+  border: 1px solid #adadad;
+  width: 100%;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border-radius: 4px;
+
+}
+:host ::ng-deep {
+  .multiselect-dropdown {
+    background: white
   }
 }

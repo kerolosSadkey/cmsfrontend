@@ -1,30 +1,36 @@
 <div class="row w-100 mx-0 auth-page">
-  <div class="col-md-7 col-xl-7 mx-auto mt-5 mb-5">
-    <div class="header bcolor text-center">
+  <div class="col-md-7 col-xl-7 mx-auto mt-4 mb-2">
+    <div class="header bcolor text-center m-0">
           <h3>Sign Up</h3>
     </div>
     <div class="card">
       <div class="row">
         <div class="col-md-5 pe-md-0 divimg text-center">
-          <img src="https://streams-services.com/wp-content/uploads/2017/07/streams_logo_updated.png"  class=" h-50 w-50 mt-5">
+          <img src="https://streams-services.com/wp-content/uploads/2017/07/streams_logo_updated.png"  class="  h-25 w-50  mx-auto" style="margin-top: 50%;">
 
         </div>
         <div class="col-md-7 ps-md-0">
-          <div class="auth-form-wrapper px-4 py-5">
+          <div class="auth-form-wrapper px-4 py-4">
 
             <h5 class="text-muted fw-normal mb-3">Create a free account.</h5>
             <form class="forms-sample" [formGroup]="formdata">
               <div class="mb-2">
                 <label for="exampleInputUsername1" class="form-label">Full name</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Fullname">
+                <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="Fullname">
+                <div *ngIf="name?.invalid && (name.dirty|| name?.touched)" class="text text-danger">
+                  <span *ngIf="name.errors?.['required']">
+                    Full name  is required
+                  </span>
+
+                </div>
               </div>
 
               <div class="row">
                 <div class="mb-2 col-4 d-inline">
                   <label for="exampleInputUsername1" class="form-label">Country code</label>
                   <select class="form-control " id="exampleInputUsername1" autocomplete="Countrycode" placeholder="Country code">
-                    <option>012</option>
-                    <option>011</option>
+                    <option>02</option>
+                    <option>01</option>
                   </select>
 
 
@@ -32,21 +38,47 @@
                 <div class="mb-2 col-8 d-inline">
                   <label for="exampleInputUsername1" class="form-label">Phone Number</label>
 
-                  <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="phone">
+                  <input type="text" class="form-control" formControlName="phone" id="exampleInputUsername1" autocomplete="phone" placeholder="phone">
+                  <div *ngIf="phone?.invalid && (phone.dirty|| phone?.touched)" class="text text-danger">
+                    <span *ngIf="phone.errors?.['required']">
+                      phone  is required
+                    </span>
+                    <div *ngIf="phone.errors?.['maxlength']">
+                        phone is required  11 digit number
+                    </div>
 
+
+                  </div>
                 </div>
 
               </div>
 
               <div class="mb-2">
                 <label for="exampleInputUsername1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
+                <input type="text" class="form-control" formControlName="username" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
+                <div *ngIf="username?.invalid && (username.dirty|| username?.touched)" class="text text-danger">
+                  <span *ngIf="username.errors?.['required']">
+                    username  is required
+                  </span>
+
+
+                </div>
               </div>
 
               <div class="mb-2">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <div *ngIf="email?.invalid && (email.dirty|| email?.touched)" class="text text-danger">
+                  <div *ngIf="email.errors?.['required']">
+                    email  is required
+                  </div>
+                  <div *ngIf="email.errors?.['email']">
+                    Input must be email
+                  </div>
+
+                </div>
               </div>
+
               <div class="mb-2">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password">
@@ -54,13 +86,13 @@
                   <span *ngIf="password.errors?.['required']">
                     Password  is required
                   </span>
-                  <span *ngIf="password.errors?.['minlength']">
+                  <div *ngIf="password.errors?.['minlength']">
                       Password is required at lest 6 charcaters
-                  </span>
+                  </div>
 
-                  <span *ngIf="password?.errors?.['pattern']">
+                  <div *ngIf="password?.errors?.['pattern']">
                       Password should have at least one: Capital letter, small letter, number, special character
-                </span>
+                </div>
                 </div>
               </div>
               <div class="mb-2">
@@ -70,7 +102,7 @@
                   <span *ngIf="confirm.errors?.['required']">
                     confirm password is required
                   </span>
-                  <span *ngIf="!confirm.errors?.['noMatch']">
+                  <span *ngIf="confirm.errors?.['noMatch']">
                     {{confirm.errors?.['noMatch']}}
                     confirm password  not match  password
                   </span>
@@ -84,11 +116,11 @@
                   Remember me
                 </label>
               </div>
-              <div class="mx-auto">
+              <div class="mx-auto d-inline">
                 <button type="submit" class="btn bcolor me-2 mb-2 mb-md-0 w-50 " (click)="onRegister($event)">Sign up</button>
 
               </div>
-              <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? Sign in</a>
+              <a routerLink="/auth/login" class="d-inline mt-3 text-muted">Already a user? Sign in</a>
             </form>
           </div>
         </div>

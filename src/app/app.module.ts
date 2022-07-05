@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown"
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
+    NgMultiSelectDropDownModule
 
   ],
   providers: [

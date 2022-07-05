@@ -1,6 +1,6 @@
 
 
-<div class="head ">
+<!-- <div class="head ">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
@@ -25,7 +25,6 @@
         </div>
 
 
-        <!-- Upload  -->
         <form id="file-upload-form" class="uploader">
           <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
@@ -59,7 +58,7 @@
         </div>
 
 
-        <!-- Upload  -->
+
         <form id="file-upload-form" class="uploader">
           <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
@@ -82,9 +81,49 @@
       </div>
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-      <p>clicked contact</p>
-      <p>clicked contact</p>
-      <p>clicked contact</p>
+
+      <div class="row">
+        <div class="col-5  mt-5 m-3">
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Subject</label>
+            <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="Subject">
+
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> name</label>
+            <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="name">
+
+          </div>
+          <div class="mb-2 d-inline">
+            <label for="exampleInputUsername1" class="form-label">Prioirty</label>
+            <select class="form-control " id="exampleInputUsername1" autocomplete="Countrycode" placeholder=" select Prioirty">
+              <option>High</option>
+              <option>low</option>
+              <option>Critical</option>
+            </select>
+
+
+          </div>
+
+        </div>
+            <div class="divfiled1 mt-5 m-2 text-center col-1"></div>
+        <div class="col-5 mt-5  m-3">
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Due Date</label>
+            <input type="date" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="Subject">
+
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Comment</label>
+            <textarea type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="name">
+              </textarea>
+
+          </div>
+
+
+        </div>
+
+      </div>
     </div>
     <div class="tab-pane fade" id="nav-contact1" role="tabpanel" aria-labelledby="nav-contact1-tab">
       <p>clicked contact1</p>
@@ -98,4 +137,146 @@
     </div>
   </div>
 </div>
+  -->
 
+
+
+  <div class="row">
+
+    <div class="col-lg-7 col-sm-12 col-md-12 head me-4">
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
+           aria-controls="nav-home" aria-selected="true">Scan  <i class="fa-solid fa-qrcode"></i></a>
+          <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Attachments <i class="fa-solid fa-paperclip"></i></a>
+
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+
+
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+
+
+        </div>
+
+
+
+
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="mt-5">
+
+            <div class="text-center">
+              <h2>اختار مرفقات</h2>
+
+            </div>
+
+
+
+            <form id="file-upload-form" class="uploader">
+              <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+              <label for="file-upload" id="file-drag">
+                <img id="file-image" src="#" alt="Preview" class="hidden">
+                <div id="start">
+                  <i class="fa fa-download qrfile" aria-hidden="true"></i>
+                  <div>اختار مرفقات </div>
+                  <div id="notimage" class="hidden">اختار مرفقات</div>
+                  <span id="file-upload-btn" class="btn btn-primary">اختار مرفقات</span>
+                </div>
+                <div id="response" class="hidden">
+                  <div id="messages"></div>
+                  <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%
+                  </progress>
+                </div>
+              </label>
+            </form>
+          </div>
+        </div>
+
+
+
+    </div>
+
+  </div>
+
+  <!--metadata-->
+
+  <div class="col-lg-4 col-sm-12 col-md-12 head p-0">
+       <div class="text-center m-0 p-2" style="background-color: #00cafd;color: #fff;">
+           <h3>Meta date</h3>
+       </div>
+    <div class="" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+
+        <div class=" mt-5 m-3">
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Subject</label>
+            <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="Subject">
+
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> name</label>
+            <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="name">
+
+          </div>
+          <div class="mb-2 d-inline">
+            <label for="exampleInputUsername1" class="form-label">Prioirty</label>
+            <select class="form-control " id="exampleInputUsername1" autocomplete="Countrycode" placeholder=" select Prioirty">
+              <option>High</option>
+              <option>low</option>
+              <option>Critical</option>
+            </select>
+
+
+          </div>
+
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Due Date</label>
+            <input type="date" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="Subject">
+
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Comment</label>
+            <input type="text" class="form-control h-25" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="comment">
+
+
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputUsername1" class="form-label"> Note</label>
+            <textarea type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="name">
+              </textarea>
+
+          </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+   </div>
+
+
+
+   <div class="col-sm-6 mb-5 mt-5">
+    <ng-multiselect-dropdown
+    [placeholder]="'custom placeholder'"
+    [settings]="dropdownSettings"
+    [data]="dropdownList"
+    [(ngModel)]="selectedItems"
+    (onSelect)="ItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+  >
+    </ng-multiselect-dropdown>
+
+   </div>
+
+</div>
