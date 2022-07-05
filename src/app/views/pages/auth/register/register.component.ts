@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
       username: ['',[Validators.required]],
       password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}`) ]],
       confirm: ["", [Validators.required]]
-  }, { validator: [this.matchPassword('password', 'confirm') ]});
+  }, { validators: [this.matchPassword('password', 'confirm') ]});
   }
 
   get name(){
@@ -43,19 +43,21 @@ export class RegisterComponent implements OnInit {
       }
 
 
-    matchPassword(firstControl:string, secondControl:string): ValidatorFn {
+    matchPassword(firstControl:string, secondControl:string) {
 
-      return (control: AbstractControl): ValidationErrors | null => {
+      return (control: AbstractControl)=> {
 
-        const password = control.get(firstControl)!.value;
-        const confirm = control.get(secondControl)!.value;
+        const password = control.get(firstControl)!;
+        const confirm = control.get(secondControl)!;
 
-        if (password != confirm) {
-          console.log(password)
-          console.log(confirm)
-           return { noMatch: true } }
+        if (password.value !== confirm.value) {
+          confirm.setErrors( {noMatch: true})
 
-        return null
+          }else{
+            confirm.setErrors( null)
+          }
+
+
 
       }
     }

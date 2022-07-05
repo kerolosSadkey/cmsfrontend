@@ -16,6 +16,24 @@
   margin-right: 240px !important;
 }
 
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+.footer{
+  margin-left: 0px !important;
+}
+.page-wrapper {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.navbar .sidebar-toggler {
+  height: 100%;
+  border-right: none;
+
+}
+}
+
 
 /*!*************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/assets/scss/style.scss ***!
