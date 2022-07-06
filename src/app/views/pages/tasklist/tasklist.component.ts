@@ -12,12 +12,17 @@ export class TasklistComponent implements OnInit {
 
   collection:any[]=[]
   page: number = 1;
+<<<<<<< HEAD
   pageSize: number = 4;
+=======
+  pageSize: number = 2;
+>>>>>>> ebea711b52806914f2c7a82cc46d383425d7ed4b
 
   total: number = 0;
   ngOnInit(): void {
 
     this.collection=[
+<<<<<<< HEAD
       {id:1,name:"name1" ,subject:"Subject1",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
       {id:2,name:"name2" ,subject:"Subject2",document:"document1.pdf",priority:"low",due_date:"12-7-2022"},
       {id:3,name:"name3" ,subject:"Subject3",document:"document1.pdf",priority:"cratical",due_date:"12-8-2022"},
@@ -34,13 +39,24 @@ export class TasklistComponent implements OnInit {
       {id:14,name:"name14" ,subject:"Subject14",document:"document1.pdf",priority:"high",due_date:"12-7-2022"},
       {id:15,name:"name115" ,subject:"Subject15",document:"document1.pdf",priority:"low",due_date:"12-6-2022"},
       {id:16,name:"name16" ,subject:"Subject16",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
+=======
+      {id:1,name:""}
+>>>>>>> ebea711b52806914f2c7a82cc46d383425d7ed4b
     ]
  this.getUsers()
 
   }
 
   getUsers(){
+<<<<<<< HEAD
     this.collection=this.collection.sort(p=>p.priority)
+=======
+    this.htttp.get('https://reqres.in/api/users').subscribe((respon:any)=>{
+      this.collection=respon.data
+      console.log(this.collection[0].email)
+      this.total = respon.data.total;
+    })
+>>>>>>> ebea711b52806914f2c7a82cc46d383425d7ed4b
   }
 
   pagesize(n:number){

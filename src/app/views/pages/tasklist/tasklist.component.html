@@ -37,6 +37,7 @@
             *ngFor="let item of collection | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ;let i=index">
 
               <tr>
+<<<<<<< HEAD
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.subject}}</td>
@@ -50,6 +51,16 @@
                 <td>{{item.due_date}}</td>
                 <td>
                 <a [routerLink]="'task/'+item.id">  <i class="link-icon feather icon-book-open " ></i></a>
+=======
+                <td>{{i+1 + (2 * (page-1))}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.first_name}}</td>
+                <td>{{item.last_name}}</td>
+                <td><span class="badge text-danger">High</span> <i class="link-icon feather icon-arrow-up" style="color: #f50;"></i></td>
+                <td>Leonardo Payne</td>
+                <td>
+                <a routerLink="#">  <i class="link-icon feather icon-book-open" ></i></a>
+>>>>>>> ebea711b52806914f2c7a82cc46d383425d7ed4b
                 </td>
 
               </tr>
