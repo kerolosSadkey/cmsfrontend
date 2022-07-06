@@ -16,7 +16,8 @@
             <form class="forms-sample" [formGroup]="formdata">
               <div class="mb-2">
                 <label for="exampleInputUsername1" class="form-label">Full name</label>
-                <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1" autocomplete="Username" placeholder="Fullname">
+                <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1"
+                [ngClass]="{'is-valid':name.valid,'is-invalid':name.invalid}" placeholder="Fullname">
                 <div *ngIf="name?.invalid && (name.dirty|| name?.touched)" class="text text-danger">
                   <span *ngIf="name.errors?.['required']">
                     Full name  is required
@@ -38,7 +39,8 @@
                 <div class="mb-2 col-8 d-inline">
                   <label for="exampleInputUsername1" class="form-label">Phone Number</label>
 
-                  <input type="text" class="form-control" formControlName="phone" id="exampleInputUsername1" autocomplete="phone" placeholder="phone">
+                  <input type="text" class="form-control" formControlName="phone" id="exampleInputUsername1"
+                   [ngClass]="{'is-valid':phone.valid,'is-invalid':phone.invalid}" placeholder="phone">
                   <div *ngIf="phone?.invalid && (phone.dirty|| phone?.touched)" class="text text-danger">
                     <span *ngIf="phone.errors?.['required']">
                       phone  is required
@@ -55,7 +57,8 @@
 
               <div class="mb-2">
                 <label for="exampleInputUsername1" class="form-label">Username</label>
-                <input type="text" class="form-control" formControlName="username" id="exampleInputUsername1" autocomplete="Username" placeholder="Username">
+                <input type="text" class="form-control" formControlName="username" id="exampleInputUsername1"
+                [ngClass]="{'is-valid':username.valid,'is-invalid':username.invalid}" placeholder="Username">
                 <div *ngIf="username?.invalid && (username.dirty|| username?.touched)" class="text text-danger">
                   <span *ngIf="username.errors?.['required']">
                     username  is required
@@ -67,7 +70,8 @@
 
               <div class="mb-2">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                [ngClass]="{'is-valid':email.valid,'is-invalid':email.invalid}" placeholder="Email">
                 <div *ngIf="email?.invalid && (email.dirty|| email?.touched)" class="text text-danger">
                   <div *ngIf="email.errors?.['required']">
                     email  is required
@@ -81,7 +85,8 @@
 
               <div class="mb-2">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password">
+                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+                [ngClass]="{'is-valid':password.valid,'is-invalid':password.invalid}"  placeholder="Password">
                 <div *ngIf="password?.invalid && (password.dirty|| password?.touched)" class="text text-danger">
                   <span *ngIf="password.errors?.['required']">
                     Password  is required
@@ -97,7 +102,9 @@
               </div>
               <div class="mb-2">
                 <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input type="password" formControlName="confirm" class="form-control" id="exampleInputconfiram1" autocomplete="current-confiram" placeholder="confiram">
+                <input type="password" formControlName="confirm" class="form-control" id="exampleInputconfiram1"
+                 [ngClass]="{'is-valid':confirm.valid,'is-invalid':confirm.invalid}" placeholder="confiram">
+                 
                 <div *ngIf="confirm?.invalid && (confirm.dirty|| confirm?.touched)" class="text text-danger">
                   <span *ngIf="confirm.errors?.['required']">
                     confirm password is required

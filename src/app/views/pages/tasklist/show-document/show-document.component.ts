@@ -1,21 +1,44 @@
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-tasklist',
-  templateUrl: './tasklist.component.html',
-  styleUrls: ['./tasklist.component.scss']
+  selector: 'app-show-document',
+  templateUrl: './show-document.component.html',
+  styleUrls: ['./show-document.component.scss']
 })
-export class TasklistComponent implements OnInit {
+export class ShowDocumentComponent implements OnInit {
 
-  constructor(private htttp:HttpClient) { }
+  constructor(private route: ActivatedRoute,private fb :FormBuilder) { }
 
+
+  dropdownList:any=[];
+  selectedItems :any;
+  dropdownSettings:any ;
   collection:any[]=[]
-  page: number = 1;
-  pageSize: number = 4;
-
-  total: number = 0;
-  ngOnInit(): void {
+  document:any=[]
+  formdata:FormGroup
+  ngOnInit() {
+    this.dropdownList = [
+      { item_id: 1, item_text: 'Mumbai' },
+      { item_id: 2, item_text: 'Bangaluru' },
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' },
+      { item_id: 5, item_text: 'New Delhi' }
+    ];
+    this.selectedItems = [
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' }
+    ];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: true
+    };
 
     this.collection=[
       {id:1,name:"name1" ,subject:"Subject1",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
@@ -35,15 +58,31 @@ export class TasklistComponent implements OnInit {
       {id:15,name:"name115" ,subject:"Subject15",document:"document1.pdf",priority:"low",due_date:"12-6-2022"},
       {id:16,name:"name16" ,subject:"Subject16",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
     ]
- this.getUsers()
 
+    console.log(this.route.snapshot.paramMap.get('id'))
+    this.document=this.collection.find(d=>d.id==this.route.snapshot.paramMap.get('id'))
+  this.formdata=this.fb.group({
+     name:['',Validators.required],
+     subject:['',Validators.required],
+     due_date:['',Validators.required],
+     priorty:['',Validators.required],
+
+  })
+
+  this.formdata.patchValue({
+     name:this.document.name,
+     subject:this.document.subject,
+     priority:this.document.priority,
+     due_date:this.document.due_date,
+
+   })
+  }
+  ItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
-  getUsers(){
-    this.collection=this.collection.sort(p=>p.priority)
-  }
 
-  pagesize(n:number){
-    this.pageSize=n;
-  }
 }

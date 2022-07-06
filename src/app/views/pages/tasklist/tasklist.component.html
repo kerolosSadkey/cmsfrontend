@@ -5,14 +5,15 @@
         <h6 class="card-title mb-0">Projects</h6>
         <div ngbDropdown class="mb-2">
           <button ngbDropdownToggle class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton7">
-            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal" appFeatherIcon></i>
+            <i class="icon-lg text-muted pb-3px" class="feather  icon-more-horizontal"></i>
           </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownMenuButton7">
-            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="eye" appFeatherIcon class="icon-sm me-2"></i> <span class="">View</span></a>
-            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="edit-2" appFeatherIcon class="icon-sm me-2"></i> <span class="">Edit</span></a>
-            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="trash" appFeatherIcon class="icon-sm me-2"></i> <span class="">Delete</span></a>
-            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="printer" appFeatherIcon class="icon-sm me-2"></i> <span class="">Print</span></a>
-            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="download" appFeatherIcon class="icon-sm me-2"></i> <span class="">Download</span></a>
+          <div ngbDropdownMenu aria-labelledby="dropdownMenuButton7" class="text-center w-25">
+            <h6 class="headertitlepagination">display per page </h6>
+            <p  class="align-items-center pginationdiv"  (click)="pagesize(1)"> 1</p>
+            <p class=" align-items-center pginationdiv" (click)="pagesize(2)"> 2 </p>
+            <p class=" align-items-center pginationdiv" (click)="pagesize(3)"> 3 </p>
+            <p  class="align-items-center pginationdiv"  (click)="pagesize(4)"> 4 </p>
+
           </div>
         </div>
       </div>
@@ -21,25 +22,36 @@
           <thead>
             <tr>
               <th class="pt-0">#</th>
-              <th class="pt-0">Project Name</th>
-              <th class="pt-0">Start Date</th>
+              <th class="pt-0">Name</th>
+              <th class="pt-0">Subject</th>
+              <th class="pt-0">Document</th>
+              <th class="pt-0">Priority</th>
               <th class="pt-0">Due Date</th>
-              <th class="pt-0">Status</th>
-              <th class="pt-0">Assign</th>
+              <th class="pt-0">Action</th>
+
             </tr>
           </thead>
           <tbody>
 
             <ng-container
-             *ngFor="let item of collection | paginate: { id: 'foo', itemsPerPage: 2,  currentPage: p, totalItems: total };let i= index">
+            *ngFor="let item of collection | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ;let i=index">
 
               <tr>
-                <td>{{i+1 + (2 * (p-1))}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.first_name}}</td>
-                <td>{{item.last_name}}</td>
-                <td><span class="badge bg-danger">Released</span></td>
-                <td>Leonardo Payne</td>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.subject}}</td>
+                <td>{{item.document}}</td>
+                <td><span class="badge" style="font-size: 16px;"
+                  [ngStyle]="{'color': item.priority=='high' ? 'red' : item.priority=='low'? '#FFC000' :'green'}"
+                  >{{item.priority}}
+                   <i   [ngClass]="{ 'feather icon-arrow-down':item.priority==='low','fa-solid fa-arrow-up': item.priority ==='high' }"> </i>
+                   <i class="fa-solid fa-arrow-trend-down" [hidden]="item.priority!=='cratical'"></i>
+                  </span> </td>
+                <td>{{item.due_date}}</td>
+                <td>
+                <a [routerLink]="'task/'+item.id">  <i class="link-icon feather icon-book-open " ></i></a>
+                </td>
+
               </tr>
 
 
@@ -49,19 +61,10 @@
         </table>
 
       </div>
-      <pagination-controls  id="some_id"
-      (pageChange)="pageChangeEvent($event)"
-      [maxSize]="9"
-      [directionLinks]="true"
-     
-     [responsive]="true"
-      previousLabel="Previous"
-      nextLabel="Next"
-      screenReaderPaginationLabel="Pagination"
-      screenReaderPageLabel="page"
-      screenReaderCurrentLabel="You're on page">
-</pagination-controls>
+      <ngb-pagination class="d-flex justify-content-center mt-5"
+       [(page)]="page" [pageSize]="pageSize" [collectionSize]="collection.length"></ngb-pagination>
 
     </div>
   </div>
 </div>
+

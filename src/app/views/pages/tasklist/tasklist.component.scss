@@ -1,0 +1,31 @@
+.pginationdiv
+{
+  cursor: pointer;
+ font-size: 16px;
+}
+.pginationdiv:hover
+{
+  width: 100%;
+  background-color: #00cafd;
+  color: #fff;
+}
+.dropdown-menu{
+min-width: 6rem !important;
+}
+.headertitlepagination
+{
+  font-size: 12px;
+  font-style: italic;
+  color: #00cafd;
+}
+.icon-book-open
+{
+  color: #00cafd;
+  font-size: 18Px;
+}
+
+
+::ng-deep ngb-pagination .page-item.active .page-link {
+  background-color: #00cafd;
+  border-color: #00cafd;
+}
