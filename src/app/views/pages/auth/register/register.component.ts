@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { countries } from './country';
+import { Icountry } from './country.model';
 
 @Component({
   selector: 'app-register',
@@ -11,15 +13,15 @@ import Swal from 'sweetalert2';
 export class RegisterComponent implements OnInit {
   formdata :FormGroup
   constructor(private router: Router,  private fb:FormBuilder) { }
-
+contrylist:Icountry[]
   ngOnInit(): void {
-
+this.contrylist=countries
     this.formdata = this.fb.group({
       name: ['',[Validators.required]],
       email: ['',[Validators.email, Validators.required]],
       phone: ['',[ Validators.required,Validators.maxLength(11)]],
       username: ['',[Validators.required]],
-      password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}`) ]],
+      password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}`) ]],
       confirm: ["", [Validators.required]]
   }, { validators: [this.matchPassword('password', 'confirm') ]});
   }

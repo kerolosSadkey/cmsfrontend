@@ -21,11 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxPaginationModule,
     NgbDropdownModule,
     HttpClientModule,
-<<<<<<< HEAD
     ReactiveFormsModule,
     FormsModule,
-=======
->>>>>>> ebea711b52806914f2c7a82cc46d383425d7ed4b
     NgbModule,
     NgMultiSelectDropDownModule.forRoot()
 

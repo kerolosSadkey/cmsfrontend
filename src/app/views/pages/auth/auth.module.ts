@@ -44,11 +44,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
     },
-<<<<<<< HEAD
+
     defaultLanguage: 'en',
-=======
-    defaultLanguage: 'ar',
->>>>>>> ebea711b52806914f2c7a82cc46d383425d7ed4b
+
       isolate: true
   })
   ]
