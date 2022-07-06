@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   style:"style.rtl.css",
-
+  APIBaseURL:""
 };
 
 /*

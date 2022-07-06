@@ -12,7 +12,16 @@ import { ErrorPageComponent } from './views/pages/error-page/error-page.componen
 
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown"
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+2
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +32,17 @@ import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown"
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    NgMultiSelectDropDownModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule,
+    NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      },
+      defaultLanguage: 'ar'
+  })
 
   ],
   providers: [

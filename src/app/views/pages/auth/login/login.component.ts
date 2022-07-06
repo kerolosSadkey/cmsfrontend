@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,7 +37,13 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     localStorage.setItem('isLoggedin', 'true');
     if (localStorage.getItem('isLoggedin')) {
-      this.router.navigate(["/"]);
+      Swal.fire(
+        'Login successfully!',
+        'You clicked the button!',
+        'success'
+      ).then(()=>{
+        this.router.navigate(["/"]);
+      })
     }
   }
 
