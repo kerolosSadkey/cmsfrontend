@@ -141,9 +141,9 @@
 
 
 
-  <div class="row">
+  <div class="row ">
 
-    <div class="col-lg-7 col-sm-12 col-md-12 head me-4">
+    <div class="col-lg-7 col-sm-10 col-md-6 head mt-4 me-4">
 
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -159,7 +159,34 @@
 
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
+          <div class="mt-5">
 
+            <div class="text-center">
+              <h2>Scan document</h2>
+
+            </div>
+
+
+            <form id="file-upload-form" class="uploader">
+
+
+              <label for="file-upload" id="file-drag">
+                <img id="file-image" src="#" alt="Preview" class="hidden">
+                <div id="start">
+                  <i class="fa-solid fa-qrcode qrfile"></i>
+                  <div>Scan document </div>
+                  <div id="notimage" class="hidden">اختار وثائق ثم مسح</div>
+                  <span id="file-upload-btn" class="btn btn-primary">Scan document</span>
+                </div>
+                <div id="response" class="hidden">
+                  <div id="messages"></div>
+                  <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%
+                  </progress>
+                </div>
+              </label>
+            </form>
+          </div>
 
         </div>
 
@@ -170,31 +197,39 @@
           <div class="mt-5">
 
             <div class="text-center">
-              <h2>اختار مرفقات</h2>
+              <h2>Upload attachment</h2>
 
             </div>
 
-
-
             <form id="file-upload-form" class="uploader">
-              <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+              <input id="file-upload" type="file" name="fileUpload" accept="*" #file multiple  (change)="uploadfile(file.files)"/>
 
               <label for="file-upload" id="file-drag">
-                <img id="file-image" src="#" alt="Preview" class="hidden">
+                <p id="file-preview"  alt="Preview" class="hidden" ></p>
                 <div id="start">
                   <i class="fa fa-download qrfile" aria-hidden="true"></i>
-                  <div>اختار مرفقات </div>
-                  <div id="notimage" class="hidden">اختار مرفقات</div>
-                  <span id="file-upload-btn" class="btn btn-primary">اختار مرفقات</span>
+                  <div>Upload attachment </div>
+                  <div id="notimage" class="hidden">Upload attachment</div>
+                  <span id="file-upload-btn" class="btn btn-primary">Upload attachment</span>
                 </div>
-                <div id="response" class="hidden">
+
+
+
+                <!-- <div id="response" class="hidden">
                   <div id="messages"></div>
-                  <progress class="progress" id="file-progress" value="0">
-                    <span>0</span>%
+                  <progress class="progress" id="file-progress" [value]="progress">
+                    <span>{{progress}}</span>%
                   </progress>
-                </div>
+                </div> -->
               </label>
+
             </form>
+            <div class="progress form-group col-12" *ngIf="progress>0">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="">
+              </div>
+          </div>
+
+
           </div>
         </div>
 
@@ -206,7 +241,7 @@
 
   <!--metadata-->
 
-  <div class="col-lg-4 col-sm-12 col-md-12 head p-0">
+  <div class="col-lg-4 col-sm-10 col-md-5 head p-0 mt-4">
        <div class="text-center m-0 p-2" style="background-color: #00cafd;color: #fff;">
            <h3>Meta date</h3>
        </div>
@@ -266,16 +301,20 @@
 
 
 
-   <div class="col-sm-6 mb-5 mt-5">
+   <div class="col-sm-12 mb-5 mt-5 col-md-10 col-lg-6">
     <ng-multiselect-dropdown
     [placeholder]="'custom placeholder'"
     [settings]="dropdownSettings"
     [data]="dropdownList"
     [(ngModel)]="selectedItems"
-    (onSelect)="ItemSelect($event)"
+    (onSelect)="onItemSelect($event)"
     (onSelectAll)="onSelectAll($event)"
   >
     </ng-multiselect-dropdown>
+
+   </div>
+   <div class="col-sm-12 mb-5 mt-5 col-md-12 col-lg-6 text-center">
+    <button class="btn btn-send "> Send Task   <i class="icon-lg text-muted pb-3px" class="feather  icon-send"></i></button>
 
    </div>
 

@@ -1,5 +1,163 @@
+<div class="bodyimg">
+  <div class="container-fluid">
+    <div class="row  mx-0 ">
+      <div class="col-md-8 col-xl-9 mx-auto  ">
+
+        <div class="card mt-5 p-0" style="background-color: #fff;">
+          <div class="row">
+            <div class="col-md-8 col-lg-7 col-sm-6 p-0" >
+              <img src="../../../../../assets/images/left.side.jpg"  class="" width="578px" height="600px" >
+            </div>
+            <div class="col-md-4 col-lg-5 col-sm-6  ps-md-0 my-auto">
+              <div class="auth-form-wrapper px-4 py-5 ">
+                <h3 class=" fw-normal mb-3 text-center" style="color: #000;">Welcome back</h3>
+                <form class="forms-sample" [formGroup]="formdata">
+                  <div class="mb-3">
+
+                    <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1"
+                    [ngClass]="{'is-valid':name.valid,'is-invalid':name.invalid}" placeholder="Fullname">
+                    <div *ngIf="name?.invalid && (name.dirty|| name?.touched)" class="text text-danger">
+                      <span *ngIf="name.errors?.['required']">
+                        Full name  is required
+                      </span>
+
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="mb-3 col-4 d-inline">
+
+                      <select class="form-control " id="exampleInputUsername1" autocomplete placeholder="Country code">
+                        <ng-container *ngFor="let item of contrylist">
+
+                          <option [value]="item.code">  <img src="https://countryflagsapi.com/png/eg"> </option>
+
+                        </ng-container>
+
+
+                      </select>
+
+
+                    </div>
+                    <div class="mb-3 col-8 d-inline">
+
+
+                      <input type="text" class="form-control" formControlName="phone" id="exampleInputUsername1"
+                       [ngClass]="{'is-valid':phone.valid,'is-invalid':phone.invalid}" placeholder="phone">
+                      <div *ngIf="phone?.invalid && (phone.dirty|| phone?.touched)" class="text text-danger">
+                        <span *ngIf="phone.errors?.['required']">
+                          phone  is required
+                        </span>
+                        <div *ngIf="phone.errors?.['maxlength']">
+                            phone is required  11 digit number
+                        </div>
+
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="mb-3">
+
+                    <input type="text" class="form-control" formControlName="username" id="exampleInputUsername1"
+                    [ngClass]="{'is-valid':username.valid,'is-invalid':username.invalid}" placeholder="Username">
+                    <div *ngIf="username?.invalid && (username.dirty|| username?.touched)" class="text text-danger">
+                      <span *ngIf="username.errors?.['required']">
+                        username  is required
+                      </span>
+
+
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+
+                    <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                    [ngClass]="{'is-valid':email.valid,'is-invalid':email.invalid}" placeholder="Email">
+                    <div *ngIf="email?.invalid && (email.dirty|| email?.touched)" class="text text-danger">
+                      <div *ngIf="email.errors?.['required']">
+                        email  is required
+                      </div>
+                      <div *ngIf="email.errors?.['email']">
+                        Input must be email
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+
+                    <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+                    [ngClass]="{'is-valid':password.valid,'is-invalid':password.invalid}"  placeholder="Password">
+                    <div *ngIf="password?.invalid && (password.dirty|| password?.touched)" class="text text-danger">
+                      <span *ngIf="password.errors?.['required']">
+                        Password  is required
+                      </span>
+                      <div *ngIf="password.errors?.['minlength']">
+                          Password is required at lest 6 charcaters
+                      </div>
+
+                      <div *ngIf="password?.errors?.['pattern']">
+                          Password should have at least one: Capital letter, small letter, number, special character
+                    </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+
+                    <input type="password" formControlName="confirm" class="form-control" id="exampleInputconfiram1"
+                     [ngClass]="{'is-valid':confirm.valid  ,'is-invalid':confirm.invalid }" placeholder="confirm Password">
+
+                    <div *ngIf="confirm?.invalid && (confirm.dirty|| confirm?.touched)" class="text text-danger">
+                      <span *ngIf="confirm.errors?.['required']">
+                        confirm password is required
+                      </span>
+                      <span *ngIf="confirm.errors?.['noMatch']">
+                        confirm password  not match  password
+                      </span>
+
+
+                    </div>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="authCheck">
+                    <label class="form-check-label" for="authCheck">
+                      Remember me
+                    </label>
+                  </div>
+                  <div class="mx-auto d-inline">
+                    <button type="submit" class="btn bcolor me-2 mb-3 mb-md-0 w-50 " (click)="onRegister($event)">Sign up</button>
+
+                  </div>
+                  <a routerLink="/auth/login" class="d-inline mt-3 text-muted">Already a user? <span style="color: #00cafd;"> Sign in</span> </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div class="row w-100 mx-0 auth-page">
-  <div class="col-md-7 col-xl-7 mx-auto mt-4 mb-2">
+  <div class="col-md-7 col-xl-7 mx-auto mt-4 mb-3">
     <div class="header bcolor text-center m-0">
           <h3>Sign Up</h3>
     </div>
@@ -13,127 +171,10 @@
           <div class="auth-form-wrapper px-4 py-4">
 
             <h5 class="text-muted fw-normal mb-3">Create a free account.</h5>
-            <form class="forms-sample" [formGroup]="formdata">
-              <div class="mb-2">
-                <label for="exampleInputUsername1" class="form-label">Full name</label>
-                <input type="text" class="form-control" formControlName="name" id="exampleInputUsername1"
-                [ngClass]="{'is-valid':name.valid,'is-invalid':name.invalid}" placeholder="Fullname">
-                <div *ngIf="name?.invalid && (name.dirty|| name?.touched)" class="text text-danger">
-                  <span *ngIf="name.errors?.['required']">
-                    Full name  is required
-                  </span>
 
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="mb-2 col-4 d-inline">
-                  <label for="exampleInputUsername1" class="form-label">Country code</label>
-                  <select class="form-control " id="exampleInputUsername1" autocomplete placeholder="Country code">
-                    <ng-container *ngFor="let item of contrylist">
-                      <option [value]="item.code">{{item.code}}</option>
-                    </ng-container>
-
-
-                  </select>
-
-
-                </div>
-                <div class="mb-2 col-8 d-inline">
-                  <label for="exampleInputUsername1" class="form-label">Phone Number</label>
-
-                  <input type="text" class="form-control" formControlName="phone" id="exampleInputUsername1"
-                   [ngClass]="{'is-valid':phone.valid,'is-invalid':phone.invalid}" placeholder="phone">
-                  <div *ngIf="phone?.invalid && (phone.dirty|| phone?.touched)" class="text text-danger">
-                    <span *ngIf="phone.errors?.['required']">
-                      phone  is required
-                    </span>
-                    <div *ngIf="phone.errors?.['maxlength']">
-                        phone is required  11 digit number
-                    </div>
-
-
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="mb-2">
-                <label for="exampleInputUsername1" class="form-label">Username</label>
-                <input type="text" class="form-control" formControlName="username" id="exampleInputUsername1"
-                [ngClass]="{'is-valid':username.valid,'is-invalid':username.invalid}" placeholder="Username">
-                <div *ngIf="username?.invalid && (username.dirty|| username?.touched)" class="text text-danger">
-                  <span *ngIf="username.errors?.['required']">
-                    username  is required
-                  </span>
-
-
-                </div>
-              </div>
-
-              <div class="mb-2">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
-                [ngClass]="{'is-valid':email.valid,'is-invalid':email.invalid}" placeholder="Email">
-                <div *ngIf="email?.invalid && (email.dirty|| email?.touched)" class="text text-danger">
-                  <div *ngIf="email.errors?.['required']">
-                    email  is required
-                  </div>
-                  <div *ngIf="email.errors?.['email']">
-                    Input must be email
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="mb-2">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
-                [ngClass]="{'is-valid':password.valid,'is-invalid':password.invalid}"  placeholder="Password">
-                <div *ngIf="password?.invalid && (password.dirty|| password?.touched)" class="text text-danger">
-                  <span *ngIf="password.errors?.['required']">
-                    Password  is required
-                  </span>
-                  <div *ngIf="password.errors?.['minlength']">
-                      Password is required at lest 6 charcaters
-                  </div>
-
-                  <div *ngIf="password?.errors?.['pattern']">
-                      Password should have at least one: Capital letter, small letter, number, special character
-                </div>
-                </div>
-              </div>
-              <div class="mb-2">
-                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input type="password" formControlName="confirm" class="form-control" id="exampleInputconfiram1"
-                 [ngClass]="{'is-valid':confirm.valid  ,'is-invalid':confirm.invalid }" placeholder="confiram">
-
-                <div *ngIf="confirm?.invalid && (confirm.dirty|| confirm?.touched)" class="text text-danger">
-                  <span *ngIf="confirm.errors?.['required']">
-                    confirm password is required
-                  </span>
-                  <span *ngIf="confirm.errors?.['noMatch']">
-                    confirm password  not match  password
-                  </span>
-
-
-                </div>
-              </div>
-              <div class="form-check mb-2">
-                <input type="checkbox" class="form-check-input" id="authCheck">
-                <label class="form-check-label" for="authCheck">
-                  Remember me
-                </label>
-              </div>
-              <div class="mx-auto d-inline">
-                <button type="submit" class="btn bcolor me-2 mb-2 mb-md-0 w-50 " (click)="onRegister($event)">Sign up</button>
-
-              </div>
-              <a routerLink="/auth/login" class="d-inline mt-3 text-muted">Already a user? Sign in</a>
-            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -11,6 +11,15 @@ export class CreatCorrespondenceComponent implements OnInit {
   dropdownList:any=[];
   selectedItems :any;
   dropdownSettings:any ;
+
+
+  [x: string]: any;
+  defaultNavActiveId:number = 1;
+
+
+
+///////////////////////////////////////
+progress:number=0
   ngOnInit() {
     this.dropdownList = [
       { item_id: 1, item_text: 'Mumbai' },
@@ -29,7 +38,7 @@ export class CreatCorrespondenceComponent implements OnInit {
       textField: 'item_text',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 5,
+      itemsShowLimit: 3,
       allowSearchFilter: true
     };
   }
@@ -39,13 +48,35 @@ export class CreatCorrespondenceComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
+  onItemDeSelect(item: any) {
+    console.log(item);
+  }
 
-  [x: string]: any;
-  defaultNavActiveId:number = 1;
+  uploadfile(files:any){
 
+    if (files.length > 0 ) {
+      let p=document.getElementById("file-preview")
+      p?.classList.remove("hidden")
+      p!.innerHTML=""
+      for(let file of files){
+        p!.innerHTML  +=file.name+"<br>"
+      }
 
+      let that=this
+      let    response=document.getElementById("response")
+      response?.classList.remove("hidden")
 
+   let cv= setInterval(function(){
+      that.progress+=20
 
-
-
+      if( that.progress==120){
+        that.progress=0
+          clearInterval(cv)
+      }
+   },200)
+      // this.formdata.patchValue({
+      //   documents:  file,
+      // });
+    }
+  }
 }

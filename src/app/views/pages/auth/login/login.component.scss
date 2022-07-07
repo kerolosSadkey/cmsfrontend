@@ -1,3 +1,4 @@
+
 :host {
   height: 100vh;
   display: flex;
@@ -19,8 +20,48 @@
 }
 .divimg{
   margin:20px 0;
-    border-right:1px solid #eee;
+
   }
   .auth-page{
     direction: ltr;
   }
+
+.container-fluid
+{
+margin: 0 !important;
+}
+.card{
+  border-radius: 15px;
+ overflow: hidden;
+  // border: 0.5px solid #445775;
+  box-shadow:0px 0px 10px #445775;
+
+  z-index: 999;
+}
+input{
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+i{
+  font-size: 18px;
+}
+
+
+
+.bodyimg{
+  background-image: url('../../../../../assets/images/background_grad.jpg');
+width: 100%;
+height: 100% !important;
+  background-repeat: no-repeat;
+  background-size:cover;
+  margin: 0 !important;
+  background-attachment: fixed;
+   padding: 0;
+}
+
+
+
+

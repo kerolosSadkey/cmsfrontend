@@ -29,7 +29,7 @@ h2,p{
   clear: both;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
 
   label {
     float: left;
@@ -192,4 +192,13 @@ h2,p{
   .multiselect-dropdown {
     background: white
   }
+}
+.btn-send{
+  background-color: #00cafd;
+  color: #fff;
+  width: 35%;
+  font-size: 18px;
+}
+.col-md-10{
+ 
 }

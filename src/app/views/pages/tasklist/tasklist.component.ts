@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasklistComponent implements OnInit {
 
-  constructor(private htttp:HttpClient) { }
+  constructor(private htttp:HttpClient,private route:Router) { }
 
   collection:any[]=[]
   page: number = 1;
 
   pageSize: number = 4;
 
-  
+
 
 
   total: number = 0;
@@ -43,7 +44,7 @@ export class TasklistComponent implements OnInit {
 
 
     ]
- this.getUsers()
+   console.log(this.collection)
 
   }
 
@@ -57,9 +58,14 @@ export class TasklistComponent implements OnInit {
       this.total = respon.data.total;
     })
 
+
   }
 
   pagesize(n:number){
     this.pageSize=n;
+  }
+
+  openrow(id:any){
+   this.route.navigate(["tasklist/task/"+id])
   }
 }

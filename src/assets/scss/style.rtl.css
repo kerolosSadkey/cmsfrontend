@@ -16,9 +16,11 @@
   margin-right: 240px !important;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   /* For mobile phones: */
-
+body{
+  margin: 0;
+}
 .footer{
   margin-left: 0px !important;
 }
@@ -30,7 +32,7 @@
 .navbar .sidebar-toggler {
   height: 100%;
   border-right: none;
-
+ border-left: none;
 }
 }
 
