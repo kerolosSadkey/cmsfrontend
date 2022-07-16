@@ -1,19 +1,13 @@
 import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
+
   {
-    label: 'Main',
-    isTitle: true
-  },
-  {
-    label: 'Dashboard',
+    label: 'Home',
     icon: 'home',
     link: '/dashboard'
   },
-  {
-    label: 'Web Apps',
-    isTitle: true
-  },
+
   {
     label: 'Inbound',
     icon: 'mail',
@@ -75,10 +69,7 @@ export const MENU: MenuItem[] = [
     link: '/apps/chat',
   },
 
-  {
-    label: 'Roports',
-    isTitle: true
-  },
+ 
   {
     label: 'Reports',
     icon: 'layout',

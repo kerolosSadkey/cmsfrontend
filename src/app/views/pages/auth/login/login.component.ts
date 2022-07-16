@@ -37,11 +37,14 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     localStorage.setItem('isLoggedin', 'true');
     if (localStorage.getItem('isLoggedin')) {
-      Swal.fire(
-        'Login successfully!',
-        'You clicked the button!',
-        'success'
-      ).then(()=>{
+
+      Swal.fire({
+        icon: 'success',
+        title:'Login successfully!',
+       text: 'You clicked the button!',
+        showConfirmButton: false,
+        timer: 2000,
+      }).then(()=>{
         this.router.navigate(["/"]);
       })
     }

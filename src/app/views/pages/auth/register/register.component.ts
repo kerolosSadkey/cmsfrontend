@@ -20,6 +20,7 @@ this.contrylist=countries
       name: ['',[Validators.required]],
       email: ['',[Validators.email, Validators.required]],
       phone: ['',[ Validators.required,Validators.maxLength(11)]],
+      department: ['',[ Validators.required]],
       username: ['',[Validators.required]],
       password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}`) ]],
       confirm: ["", [Validators.required]]
@@ -35,6 +36,9 @@ this.contrylist=countries
     get phone(){
       return this.formdata.get('phone')!;
       }
+      get department(){
+        return this.formdata.get('department')!;
+        }
     get username(){
       return this.formdata.get('username')!;
       }

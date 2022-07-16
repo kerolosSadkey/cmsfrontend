@@ -10,7 +10,8 @@
             </div>
             <div class="col-md-4 col-lg-5 col-sm-6  ps-md-0 my-auto">
               <div class="auth-form-wrapper px-4 py-5 ">
-                <h3 class=" fw-normal mb-3 text-center" style="color: #000;">Welcome back</h3>
+                <h3 class=" fw-normal mb-3 text-center" style="color: #000;">Welcome </h3>
+                <h4 class=" fw-normal mb-3 text-center" style="color: #000;">'New User Request' </h4>
                 <form class="forms-sample" [formGroup]="formdata">
                   <div class="mb-3">
 
@@ -25,12 +26,14 @@
                   </div>
 
                   <div class="row">
-                    <div class="mb-3 col-4 d-inline">
+                    <div class="mb-3">
 
-                      <select class="form-control " id="exampleInputUsername1" autocomplete placeholder="Country code">
+                      <select class="form-control" formControlName="department" id="exampleInputUsername1" autocomplete placeholder="Department"
+                      [ngClass]="{'is-valid':department.valid,'is-invalid':department.invalid}">
+                        <option [value]="" disabled selected>Department</option>
                         <ng-container *ngFor="let item of contrylist">
 
-                          <option [value]="item.code">  <img src="https://countryflagsapi.com/png/eg"> </option>
+                          <option [value]="item.code">djjdjd</option>
 
                         </ng-container>
 
@@ -39,7 +42,7 @@
 
 
                     </div>
-                    <div class="mb-3 col-8 d-inline">
+                    <!-- <div class="mb-3 col-8 d-inline">
 
 
                       <input type="text" class="form-control" formControlName="phone" id="exampleInputUsername1"
@@ -54,7 +57,7 @@
 
 
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
 
@@ -119,14 +122,9 @@
 
                     </div>
                   </div>
-                  <div class="form-check mb-3">
-                    <input type="checkbox" class="form-check-input" id="authCheck">
-                    <label class="form-check-label" for="authCheck">
-                      Remember me
-                    </label>
-                  </div>
+
                   <div class="mx-auto d-inline">
-                    <button type="submit" class="btn bcolor me-2 mb-3 mb-md-0 w-50 " (click)="onRegister($event)">Sign up</button>
+                    <button type="submit" class="btn bcolor me-2 mb-3 mb-md-0 w-50 " (click)="onRegister($event)">Submit</button>
 
                   </div>
                   <a routerLink="/auth/login" class="d-inline mt-3 text-muted">Already a user? <span style="color: #00cafd;"> Sign in</span> </a>

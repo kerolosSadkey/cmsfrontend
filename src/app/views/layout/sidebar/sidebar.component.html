@@ -37,6 +37,7 @@
             <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon *ngIf="item.icon"></i>
             <span class="link-title"> {{ item.label }}</span>
             <span class="link-arrow" data-feather="chevron-down" appFeatherIcon></span>
+
           </a>
 
           <a class="nav-link nav-link-ref" [routerLink]="item.link" *ngIf="!hasItems(item)"
@@ -44,6 +45,10 @@
             <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon *ngIf="item.icon"></i>
             <span class="link-title"> {{ item.label }}</span>
             <span class="badge bg-{{item.badge.variant}}" *ngIf="item.badge">{{item.badge.text}}</span>
+            <span class="position-absolute top-50 start-100 translate-middle badge rounded-pill bg-danger">
+              9+
+              <span class="visually-hidden">unread messages</span>
+            </span>
           </a>
 
           <ul class="sidebar-nav sub-menu nav-second-level" *ngIf="hasItems(item)" aria-expanded="false">
@@ -53,12 +58,17 @@
                 <i class="link-icon" [attr.data-feather]="subitem.icon" appFeatherIcon *ngIf="subitem.icon"></i>
                 <span class="link-title"> {{ subitem.label }}</span>
                 <span class="link-arrow" data-feather="chevron-down" appFeatherIcon></span>
+
               </a>
 
               <a class="nav-link nav-link-ref" [routerLink]="subitem.link" *ngIf="!hasItems(subitem)"
                 [attr.data-parent]="subitem.parentId">
                 <i class="link-icon" [attr.data-feather]="subitem.icon" appFeatherIcon *ngIf="subitem.icon"></i>
                 {{ subitem.label }}
+                <span class="position-absolute top-50 start-90 translate-middle badge rounded-pill bg-danger">
+                  9+
+                  <span class="visually-hidden">unread messages</span>
+                </span>
               </a>
 
               <ul class="sidebar-nav sub-menu nav-third-level" *ngIf="hasItems(subitem)" aria-expanded="false">
