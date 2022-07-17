@@ -47,19 +47,17 @@ export class NavbarComponent implements OnInit {
     span_Title!.textContent=title;
 
     let link = this.document.createElement("link")
-    if( title=="English"){
-      this.document.head.removeChild(this.document.head.lastElementChild!)
-      this.document.body.style.direction="ltr"
-      link.setAttribute("href","./assets/scss/style.scss")
+    if( title=="English" ){
+
+      localStorage.setItem("lang","en")
 
     }else{
 
-      this.document.body.style.direction="rtl";
-      link.setAttribute("href","./assets/scss/style.rtl.css")
-      link.setAttribute("rel","stylesheet")
+      localStorage.setItem("lang","ar")
 
     }
-    this.document.head.appendChild(link)
+ 
+    location.reload()
 
 
 

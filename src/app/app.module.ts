@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     NgMultiSelectDropDownModule,
     NgbModule,
+    NgxPaginationModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

@@ -34,7 +34,7 @@ export class CalendarComponent implements OnInit {
     eventChange:
     eventRemove:
     */
-  };
+  }
   currentEvents: EventApi[] = [];
 
   constructor() { }

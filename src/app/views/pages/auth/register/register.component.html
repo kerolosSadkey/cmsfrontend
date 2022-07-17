@@ -30,7 +30,24 @@
 
                       <select class="form-control" formControlName="department" id="exampleInputUsername1" autocomplete placeholder="Department"
                       [ngClass]="{'is-valid':department.valid,'is-invalid':department.invalid}">
-                        <option [value]="" disabled selected>Department</option>
+                      <option value="" disabled selected>Select your Department</option>
+                        <ng-container *ngFor="let item of contrylist">
+
+                          <option [value]="item.code">djjdjd</option>
+
+                        </ng-container>
+
+
+                      </select>
+
+
+                    </div>
+
+                    <div class="mb-3">
+
+                      <select class="form-control" formControlName="department" id="exampleInputUsername1" autocomplete placeholder="Department"
+                      [ngClass]="{'is-valid':department.valid,'is-invalid':department.invalid}">
+                      <option value="" disabled selected>Select your Position</option>
                         <ng-container *ngFor="let item of contrylist">
 
                           <option [value]="item.code">djjdjd</option>
@@ -61,18 +78,7 @@
 
                   </div>
 
-                  <div class="mb-3">
 
-                    <input type="text" class="form-control" formControlName="username" id="exampleInputUsername1"
-                    [ngClass]="{'is-valid':username.valid,'is-invalid':username.invalid}" placeholder="Username">
-                    <div *ngIf="username?.invalid && (username.dirty|| username?.touched)" class="text text-danger">
-                      <span *ngIf="username.errors?.['required']">
-                        username  is required
-                      </span>
-
-
-                    </div>
-                  </div>
 
                   <div class="mb-3">
 
@@ -89,7 +95,7 @@
                     </div>
                   </div>
 
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
 
                     <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
                     [ngClass]="{'is-valid':password.valid,'is-invalid':password.invalid}"  placeholder="Password">
@@ -121,7 +127,7 @@
 
 
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="mx-auto d-inline">
                     <button type="submit" class="btn bcolor me-2 mb-3 mb-md-0 w-50 " (click)="onRegister($event)">Submit</button>

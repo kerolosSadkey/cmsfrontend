@@ -38,8 +38,8 @@ FullCalendarModule.registerPlugins([
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppsComponent,
+    path: 'calendar',
+    component: CalendarComponent,
     children: [
       {
         path: '',
@@ -104,6 +104,9 @@ const routes: Routes = [
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
+  ],
+  exports:[
+    CalendarComponent
   ]
 })
 export class AppsModule { }

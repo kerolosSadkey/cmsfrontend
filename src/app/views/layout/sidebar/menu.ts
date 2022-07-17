@@ -5,12 +5,14 @@ export const MENU: MenuItem[] = [
   {
     label: 'Home',
     icon: 'home',
-    link: '/dashboard'
+    link: '/dashboard',
+    notify:false
   },
 
   {
     label: 'Inbound',
     icon: 'mail',
+    notify:true,
     subItems: [
       {
         label: 'External',
@@ -25,6 +27,7 @@ export const MENU: MenuItem[] = [
   {
     label: 'Outbound',
     icon: 'inbox',
+    notify:true,
     subItems: [
       {
         label: 'External',
@@ -40,7 +43,8 @@ export const MENU: MenuItem[] = [
   {
     label: 'Calendar',
     icon: 'calendar',
-    link: '/apps/calendar',
+    notify:true,
+    link: '/calendar',
     badge: {
       variant: 'primary',
       text: 'Event',
@@ -50,29 +54,34 @@ export const MENU: MenuItem[] = [
     label: 'Task List',
     icon: 'list',
     link: '/tasklist',
+    notify:true,
 
   },
    {
     label: 'Committees',
     icon: 'git-commit',
     link: '/apps/calendar',
+    notify:true,
 
   },
   {
     label: 'Case Mangenment',
     icon: 'briefcase',
     link: '/apps/chat',
+    notify:true,
   },
   {
     label: 'Work Places',
     icon: 'columns',
     link: '/apps/chat',
+    notify:true,
   },
 
- 
+
   {
     label: 'Reports',
     icon: 'layout',
+    notify:true,
     subItems: [
       {
         label: 'Report 1',
@@ -88,7 +97,12 @@ export const MENU: MenuItem[] = [
       }
     ]
   },
-
+  {
+    label: ' appliction setup',
+    icon: 'tool',
+    link: '/apps/chat',
+    notify:false,
+  },
 
 
 ];

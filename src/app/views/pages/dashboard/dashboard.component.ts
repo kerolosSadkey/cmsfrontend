@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Draggable } from '@fullcalendar/interaction';
 
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   public monthlySalesChartOptions: any = {};
   public cloudStorageChartOptions: any = {};
 
-  // colors and font variables for apex chart 
+  // colors and font variables for apex chart
   obj = {
     primary        : "#6571ff",
     secondary      : "#7987a1",
@@ -41,10 +42,68 @@ export class DashboardComponent implements OnInit {
    * NgbDatepicker
    */
   currentDate: NgbDateStruct;
+  collection:any[]=[]
+  collection2:any[]=[]
+  page: number = 1;
 
+  pageSize: number = 4;
+
+  pageMytask: number = 1;
+
+  pageSizeMytask: number = 4;
   constructor(private calendar: NgbCalendar) {}
-
+  @ViewChild('externalEvents', {static: true}) externalEvents: ElementRef;
   ngOnInit(): void {
+   this.convert()
+
+
+    // For external-events dragging
+
+
+    this.collection=[
+
+      {id:1,name:"name1" ,subject:"Subject1",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
+      {id:2,name:"name2" ,subject:"Subject2",document:"document1.pdf",priority:"low",due_date:"12-7-2022"},
+      {id:3,name:"name3" ,subject:"Subject3",document:"document1.pdf",priority:"cratical",due_date:"12-8-2022"},
+      {id:4,name:"name4" ,subject:"Subject4",document:"document1.pdf",priority:"high",due_date:"12-9-2022"},
+      {id:5,name:"name5" ,subject:"Subject5",document:"document1.pdf",priority:"high",due_date:"12-10-2022"},
+      {id:6,name:"name6" ,subject:"Subject6",document:"document1.pdf",priority:"low",due_date:"12-11-2022"},
+      {id:7,name:"name7" ,subject:"Subject7",document:"document1.pdf",priority:"low",due_date:"12-12-2022"},
+      {id:8,name:"name8" ,subject:"Subject8",document:"document1.pdf",priority:"high",due_date:"12-11-2022"},
+      {id:9,name:"name9" ,subject:"Subject9",document:"document1.pdf",priority:"cratical",due_date:"12-12-2022"},
+      {id:10,name:"name10" ,subject:"Subject10",document:"document1.pdf",priority:"low",due_date:"12-10-2022"},
+      {id:11,name:"name11" ,subject:"Subject11",document:"document1.pdf",priority:"low",due_date:"12-9-2022"},
+      {id:12,name:"name12" ,subject:"Subject12",document:"document1.pdf",priority:"cratical",due_date:"12-6-2022"},
+      {id:13,name:"name13" ,subject:"Subject13",document:"document1.pdf",priority:"low",due_date:"12-8-2022"},
+      {id:14,name:"name14" ,subject:"Subject14",document:"document1.pdf",priority:"high",due_date:"12-7-2022"},
+      {id:15,name:"name115" ,subject:"Subject15",document:"document1.pdf",priority:"low",due_date:"12-6-2022"},
+      {id:16,name:"name16" ,subject:"Subject16",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
+
+
+
+    ]
+    this.collection2=[
+
+      {id:1,name:"name1" ,subject:"Subject1",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
+      {id:2,name:"name2" ,subject:"Subject2",document:"document1.pdf",priority:"low",due_date:"12-7-2022"},
+      {id:3,name:"name3" ,subject:"Subject3",document:"document1.pdf",priority:"cratical",due_date:"12-8-2022"},
+      {id:4,name:"name4" ,subject:"Subject4",document:"document1.pdf",priority:"high",due_date:"12-9-2022"},
+      {id:5,name:"name5" ,subject:"Subject5",document:"document1.pdf",priority:"high",due_date:"12-10-2022"},
+      {id:6,name:"name6" ,subject:"Subject6",document:"document1.pdf",priority:"low",due_date:"12-11-2022"},
+      {id:7,name:"name7" ,subject:"Subject7",document:"document1.pdf",priority:"low",due_date:"12-12-2022"},
+      {id:8,name:"name8" ,subject:"Subject8",document:"document1.pdf",priority:"high",due_date:"12-11-2022"},
+      {id:9,name:"name9" ,subject:"Subject9",document:"document1.pdf",priority:"cratical",due_date:"12-12-2022"},
+      {id:10,name:"name10" ,subject:"Subject10",document:"document1.pdf",priority:"low",due_date:"12-10-2022"},
+      {id:11,name:"name11" ,subject:"Subject11",document:"document1.pdf",priority:"low",due_date:"12-9-2022"},
+      {id:12,name:"name12" ,subject:"Subject12",document:"document1.pdf",priority:"cratical",due_date:"12-6-2022"},
+      {id:13,name:"name13" ,subject:"Subject13",document:"document1.pdf",priority:"low",due_date:"12-8-2022"},
+      {id:14,name:"name14" ,subject:"Subject14",document:"document1.pdf",priority:"high",due_date:"12-7-2022"},
+      {id:15,name:"name115" ,subject:"Subject15",document:"document1.pdf",priority:"low",due_date:"12-6-2022"},
+      {id:16,name:"name16" ,subject:"Subject16",document:"document1.pdf",priority:"high",due_date:"12-6-2022"},
+
+
+
+    ]
     this.currentDate = this.calendar.getToday();
 
     this.customersChartOptions = getCustomerseChartOptions(this.obj);
@@ -58,6 +117,16 @@ export class DashboardComponent implements OnInit {
     if (document.querySelector('html')?.getAttribute('dir') === 'rtl') {
       this.addRtlOptions();
     }
+    new Draggable(this.externalEvents.nativeElement, {
+      itemSelector: '.fc-event',
+      eventData: function(eventEl) {
+        return {
+          title: eventEl.innerText,
+          backgroundColor: eventEl.getAttribute('bgColor'),
+          borderColor: eventEl.getAttribute('bdColor')
+        };
+      }
+    });
 
   }
 
@@ -73,6 +142,35 @@ export class DashboardComponent implements OnInit {
     //  Monthly sales chart
     this.monthlySalesChartOptions.yaxis.labels.offsetX = -10;
     this.monthlySalesChartOptions.yaxis.title.offsetX = -70;
+  }
+
+  convert(){
+
+
+
+    let link = document.createElement("link")
+    if( localStorage.getItem("lang")=="ar" ){
+      document.head.removeChild(document.head.lastElementChild!)
+      document.body.style.direction="rtl";
+
+        link.setAttribute("href","./assets/scss/style.rtl.css")
+        link.setAttribute("rel","stylesheet")
+        localStorage.setItem("lang","ar")
+
+
+
+    }else{
+      document.head.removeChild(document.head.lastElementChild!)
+      document.body.style.direction="ltr"
+      link.setAttribute("href","./assets/scss/style.scss")
+      localStorage.setItem("lang","en")
+
+    }
+    document.head.appendChild(link)
+
+
+
+
   }
 }
 
@@ -433,10 +531,10 @@ function getMonthlySalesChartOptions(obj: any) {
         show: false
       },
     },
-    colors: [obj.primary],  
+    colors: [obj.primary],
     fill: {
       opacity: .9
-    } , 
+    } ,
     grid: {
       padding: {
         bottom: -4
@@ -528,7 +626,7 @@ function getMonthlySalesChartOptions(obj: any) {
           background: obj.light,
           strokeWidth: '100%',
           opacity: 1,
-          margin: 5, 
+          margin: 5,
         },
         dataLabels: {
           showOn: "always",
@@ -554,4 +652,7 @@ function getMonthlySalesChartOptions(obj: any) {
     },
     labels: ["Storage Used"]
   }
+
+
 };
+

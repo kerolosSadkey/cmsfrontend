@@ -1,15 +1,18 @@
+import { NgxPaginationModule, PaginationControlsComponent } from 'ngx-pagination';
+import { AppsModule } from './../apps/apps.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FeatherIconModule } from 'src/app/core/feather-icon/feather-icon.module';
-import { NgbDropdownModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Ng-ApexCharts
 import { NgApexchartsModule } from "ng-apexcharts";
 
 import { DashboardComponent } from './dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -22,12 +25,18 @@ const routes: Routes = [
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
+     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
-    FormsModule,
     FeatherIconModule,
     NgbDropdownModule,
     NgbDatepickerModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    NgxPaginationModule,
+    NgbModule,
+    AppsModule,
+
   ]
 })
 export class DashboardModule { }
