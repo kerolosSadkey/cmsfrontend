@@ -1,0 +1,18 @@
+.header{
+  position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid #f2f4f9;
+border-radius: 0.25rem;
+
+flex: 1 1 auto;
+padding: 1.5rem 1.5rem;
+}
+
+h3{
+  font-weight: bold;
+}

@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-lg-6 col-sm-12 col-md-12">
+    <select class="form-select" #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
+      <option selected>Select Organization Type</option>
+      <ng-container *ngFor="let item of orgList">
+        <option [value]="item.id">{{item.name}}</option>
+
+      </ng-container>
+
+    </select>
+
+  </div>
+
+</div>
+
+
+<div *ngIf="orgbind.id== 1 || orgbind.id== 2 "  class="header mt-5" >
+  <form [formGroup]="orgForm">
+  <div class="row" >
+    <div class="d-flex justify-content-between align-items-baseline mb-2">
+      <h3 class=" mb-0">Add {{orgbind.name}}</h3>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" *ngIf="orgbind">Name of {{orgbind.name}}</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext"  placeholder="Name of {{orgbind.name}}">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12 col-md-12 ">
+      <div class="mt-4">
+        <label for="inputtext" class="col-sm-2 ">Key Person</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext" placeholder="Key Person">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" *ngIf="orgbind">Name </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext"  placeholder="Name">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" *ngIf="orgbind">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext"  placeholder="Email">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-4"  id="phone" formArrayName="address">
+      <div class=" " *ngFor="let d of address.controls; let i=index" >
+        <label for="inputtext" class="col-sm-2 ">Address</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext" placeholder="Address" name="phone{{i+1}}" id="phone{{i+1}}"  [formControlName]="i">
+          <button class="btn btn-success float-end mt-3 " id="addphone" *ngIf="d.value &&i== address.controls.length-1" type="button" (click)="addAddress()">+</button>
+          <button class="btn btn-danger float-end mt-3 me-3 " id="addphone" *ngIf="d.value &&i!=0 &&i== address.controls.length-1 " type="button" (click)="deleteAddress(i)">-</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-4"  id="phone" formArrayName="phone">
+      <div class=" " *ngFor="let p of phone.controls; let i=index" >
+        <label for="inputtext" class="col-sm-2 ">Phone</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext" placeholder="Phone" name="phone{{i+1}}" id="phone{{i+1}}"  [formControlName]="i">
+          <button class="btn btn-success float-end mt-3 " id="addphone" *ngIf="p.value &&i== phone.controls.length-1" type="button" (click)="addphone()">+</button>
+          <button class="btn btn-danger float-end mt-3 me-3 " id="addphone" *ngIf="p.value &&i!=0 &&i== phone.controls.length-1 " type="button" (click)="deletephone(i)">-</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" *ngIf="orgbind">Logo of {{orgbind.name}} </label>
+        <div class="col-sm-10">
+          <input type="file" class="form-control" id="inputtext"  placeholder="Name of {{orgbind.name}}">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12 text-center">
+      <div class="mt-5">
+
+        <div class="col-sm-10 mt-5">
+         <button type="submit" class="btn w-50" style="background-color:#00cafd; color:#fff ;"> Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</form>
+</div>
+
+
+
+ <p>{{orgForm.value | json}}</p>
+

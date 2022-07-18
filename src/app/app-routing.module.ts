@@ -41,10 +41,12 @@ const routes: Routes = [
       { path: 'tasklist', loadChildren: () => import('./views/pages/tasklist/tasklist.module').then(m => m.TasklistModule) },
 
       { path: 'user', loadChildren: () => import('./views/pages/user/user.module').then(m => m.UserModule) },
+
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
+  { path: 'admin', loadChildren: () => import('./views/pages/admin/admin.module').then(m => m.AdminModule) },
   {
     path: 'error',
     component: ErrorPageComponent,
@@ -58,6 +60,7 @@ const routes: Routes = [
     path: 'error/:type',
     component: ErrorPageComponent
   },
+
 
 
 

@@ -6,14 +6,30 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FeatherIconModule } from 'src/app/core/feather-icon/feather-icon.module';
-import { NgbDropdownModule, NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbDatepickerModule, NgbModule, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 // Ng-ApexCharts
 import { NgApexchartsModule } from "ng-apexcharts";
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
 
 import { DashboardComponent } from './dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PerfectScrollbarConfigInterface, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+])
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +46,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     FeatherIconModule,
+    FullCalendarModule,
     NgbDropdownModule,
     NgbDatepickerModule,
     NgApexchartsModule,
@@ -37,6 +54,12 @@ const routes: Routes = [
     NgbModule,
     AppsModule,
 
-  ]
+  ],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
 })
 export class DashboardModule { }
