@@ -15,7 +15,8 @@ import { AllOrginaztionComponent } from './all-orginaztion/all-orginaztion.compo
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { DefaulPagetAdminComponent } from './defaul-paget-admin/defaul-paget-admin.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
+import {MatTreeModule} from '@angular/material/tree';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -37,7 +38,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     NgbDropdownModule,
     NgbDatepickerModule,
     NgApexchartsModule,
-
+    MatTreeModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }

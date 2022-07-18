@@ -14,13 +14,93 @@
 </div>
 
 
-<div *ngIf="orgbind.id== 1 || orgbind.id== 2 "  class="header mt-5" >
+<div *ngIf="orgbind.id != null"  class="header mt-5" >
   <form [formGroup]="orgForm">
   <div class="row" >
     <div class="d-flex justify-content-between align-items-baseline mb-2">
       <h3 class=" mb-0">Add {{orgbind.name}}</h3>
 
     </div>
+    <div class="col-12 "  [ngClass]="{'divorg mt-5 p-5 ': !(orgbind.id == 4 || orgbind.id == 3 ||orgbind.id == 2 ||orgbind.id == 1 ||orgbind.id == null)}">
+
+   <div class="row">
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-3" *ngIf=" orgbind.id== 8">
+      <div class="col-sm-10">
+        <select class="form-select  " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
+          <option selected>Select your  management </option>
+          <ng-container *ngFor="let item of orgList">
+            <option [value]="item.id">{{item.name}}</option>
+
+          </ng-container>
+
+        </select>
+
+
+      </div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-3" *ngIf=" orgbind.id== 7   || orgbind.id== 8">
+      <div class="col-sm-10">
+        <select class="form-select  " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
+          <option selected>Select your sub management </option>
+          <ng-container *ngFor="let item of orgList">
+            <option [value]="item.id">{{item.name}}</option>
+
+          </ng-container>
+
+        </select>
+
+
+      </div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-3" *ngIf="orgbind.id== 6 || orgbind.id== 7   || orgbind.id== 8">
+      <div class="col-sm-10">
+        <select class="form-select  " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
+          <option selected>Select your Centralized management /public</option>
+          <ng-container *ngFor="let item of orgList">
+            <option [value]="item.id">{{item.name}}</option>
+
+          </ng-container>
+
+        </select>
+
+
+      </div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-3" *ngIf=" orgbind.id== 5 ||orgbind.id== 6 || orgbind.id== 7   || orgbind.id== 8">
+      <div class="col-sm-10">
+        <select class="form-select " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
+          <option selected>Select your staff </option>
+          <ng-container *ngFor="let item of orgList">
+            <option [value]="item.id">{{item.name}}</option>
+
+          </ng-container>
+
+        </select>
+
+
+      </div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12 mt-3" *ngIf="orgbind.id== 3 || orgbind.id== 4 || orgbind.id== 5 || orgbind.id== 6 ||orgbind.id== 7  || orgbind.id== 8">
+      <div class="col-sm-10">
+        <select class="form-select  " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
+          <option selected>Select your Ministry</option>
+          <ng-container *ngFor="let item of orgList">
+            <option [value]="item.id">{{item.name}}</option>
+
+          </ng-container>
+
+        </select>
+
+
+      </div>
+
+    </div>
+  </div>
+  </div>
 
     <div class="col-lg-6 col-sm-12 col-md-12">
       <div class="mt-4">
@@ -43,15 +123,7 @@
     </div>
 
 
-    <div class="col-lg-6 col-sm-12 col-md-12">
-      <div class="mt-4">
-        <label for="inputtext" class="" *ngIf="orgbind">Name </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext"  placeholder="Name">
-        </div>
-      </div>
-
-    </div>
+   
     <div class="col-lg-6 col-sm-12 col-md-12">
       <div class="mt-4">
         <label for="inputtext" class="" *ngIf="orgbind">Email</label>
@@ -98,7 +170,7 @@
     <div class="col-lg-6 col-sm-12 col-md-12 text-center">
       <div class="mt-5">
 
-        <div class="col-sm-10 mt-5">
+        <div class="col-sm-10 mt-5 float-end">
          <button type="submit" class="btn w-50" style="background-color:#00cafd; color:#fff ;"> Submit</button>
         </div>
       </div>
@@ -112,5 +184,11 @@
 
 
 
- <p>{{orgForm.value | json}}</p>
+
+
+
+
+
+
+
 
