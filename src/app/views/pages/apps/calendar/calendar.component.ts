@@ -17,9 +17,9 @@ export class CalendarComponent implements OnInit {
     headerToolbar: {
       left: 'prev,today,next',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      right: 'listWeek,timeGridDay,timeGridWeek,dayGridMonth'
     },
-    initialView: 'dayGridMonth',
+    initialView: 'listWeek',
     initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
     weekends: true,
     editable: true,

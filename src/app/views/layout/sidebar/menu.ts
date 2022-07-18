@@ -44,7 +44,7 @@ export const MENU: MenuItem[] = [
     label: 'Calendar',
     icon: 'calendar',
     notify:true,
-    link: '/calendar',
+    link: 'apps/calendar',
     badge: {
       variant: 'primary',
       text: 'Event',
@@ -100,7 +100,7 @@ export const MENU: MenuItem[] = [
   {
     label: ' appliction setup',
     icon: 'tool',
-    link: '/apps/chat',
+    link: '/admin',
     notify:false,
   },
 

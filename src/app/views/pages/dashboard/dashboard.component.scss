@@ -10,3 +10,21 @@ th{
   font-weight: 500 !important;
   color: #222 !important;
 }
+
+
+///////////////////////////////
+
+
+@import '~@fullcalendar/common/main.min.css';
+@import '~@fullcalendar/daygrid/main.min.css';
+@import '~@fullcalendar/timegrid/main.min.css';
+.fc .fc-list-table,table {
+  width: 100% !important;
+  border-style: hidden;
+}
+.fc table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1em;
+
+}
