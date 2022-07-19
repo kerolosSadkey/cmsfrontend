@@ -35,8 +35,9 @@ collection:any[]=[]
   }
 
   statusValue:string
-  chanag(val:any){
-
+  itemId:number
+  chanag(val:any,id:number){
+  this.itemId=id
   this.statusValue=val
   console.log(this.statusValue)
   }

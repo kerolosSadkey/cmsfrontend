@@ -45,11 +45,12 @@
                 <div class="col-lg-8 col-sm-12 col-md-12"
                >
                   <div class="">
-                  <select class="form-select " #status aria-label="Default select example" (change)="chanag(status.value)"
-                  [ngStyle]="{'color':statusValue=='r' ? 'red' : statusValue=='p'? '#FFC000' :'green'}"   style="border: none;">
-                    <option  selected value="A">Approved</option>
-                      <option value="r">rejected</option>
-                      <option value="p">pendding</option>
+                  <select class="form-select " #status aria-label="Default select example" (change)="chanag(status.value,item.id)"
+                  
+                  style="border: none;">
+                    <option  selected value="A" style="color: green;">Approved</option>
+                      <option value="r" style="color: red;">rejected</option>
+                      <option value="p" style="color: #ffc000;">pendding</option>
 
 
                   </select>

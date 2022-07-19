@@ -12,6 +12,7 @@ export class CreateOrginaztionComponent implements OnInit {
   constructor(private router:Router ,private formbulider:FormBuilder) { }
 orgList:orginzationType[]=[]
 orgForm:FormGroup
+
   ngOnInit(): void {
     this.orgList=orginzationMenu
 
@@ -37,6 +38,7 @@ orgForm:FormGroup
     console.log(val)
   this.orgbind=this.orgList.find(o=>o.id==val)!
     console.log(this.orgbind)
+   
   }
 
 
