@@ -14,8 +14,9 @@ export class NavbarComponent implements OnInit {
     private renderer: Renderer2,
     private router: Router
   ) { }
-
+lang:string
   ngOnInit(): void {
+    this.lang=localStorage.getItem('lang')!
   }
 
   /**
@@ -56,7 +57,7 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem("lang","ar")
 
     }
- 
+
     location.reload()
 
 

@@ -20,20 +20,14 @@ orgForm:FormGroup
     //Reactive form and validation
     this.orgForm=this.formbulider.group({
       Name:['',[Validators.required,Validators.minLength(5)]],
+      orgcontrol:['',[Validators.required]],
+      keyperson:['',[Validators.required,Validators.minLength(5)]],
       email:['',[Validators.required,Validators.email]],
       phone:this.formbulider.array(
-      [ this.formbulider.control('')],[Validators.required,Validators.maxLength(11)]
+      [ this.formbulider.control('')],[Validators.required,Validators.maxLength(11)] ),
+      address:this.formbulider.array( [ this.formbulider.control('')],[Validators.required]  ),
+      logo:['',[Validators.required]],
 
-      ),
-      address:this.formbulider.array(
-      [ this.formbulider.control('')],[Validators.required]
-
-      ),
-
-
-     password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}`) ]],
-     cpassword:['',[Validators.required]],
-     Delivery:['',[Validators.required,Validators.minLength(5)]]
 
     })
     }
@@ -46,9 +40,13 @@ orgForm:FormGroup
   }
 
 
-  get Name(){return this.orgForm.get("Name")}
+  get name(){return this.orgForm.get("Name")}
+  get  orgcontrol(){return this.orgForm.get("orgcontrol")}
+  get keyperson(){return this.orgForm.get("keyperson")}
+  get email(){return this.orgForm.get("email")}
   get phone(){ return this.orgForm.get("phone") as FormArray }
   get address(){ return this.orgForm.get("address") as FormArray }
+  get logo(){return this.orgForm.get("logo")}
   addphone(){
 
     this.phone.push(this.formbulider.control(''))

@@ -25,11 +25,11 @@ export const MENUAdmin: MenuItemAdmin[] = [
     notify:true,
     subItems: [
       {
-        label: 'External',
+        label: 'Add Module',
         link: 'Inbound',
       },
       {
-        label: 'Internal',
+        label: 'All Modules',
         link: '/apps/email/read'
       },
     ]
@@ -56,11 +56,11 @@ export const MENUAdmin: MenuItemAdmin[] = [
     subItems: [
       {
         label: 'Add User',
-        link: 'creatOraginaze',
+        link: 'creatUser',
       },
       {
         label: 'All Users',
-        link: 'allOraginaze',
+        link: 'allUser',
       },
     ]
   },

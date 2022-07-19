@@ -7,6 +7,7 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+  direction: rtl;
 }
 
 /*
@@ -14,6 +15,7 @@
  */
 .example-tree .mat-nested-tree-node div[role=group] {
   padding-left: 40px;
+
 }
 
 /*
@@ -23,6 +25,7 @@
  */
 .example-tree div[role=group] > .mat-tree-node {
   padding-left: 40px;
+  display: block;
 }
 
 
@@ -39,4 +42,8 @@ border-radius: 0.25rem;
 
 flex: 1 1 auto;
 padding: 1.5rem 1.5rem;
+}
+
+h3{
+  font-weight: bold;
 }

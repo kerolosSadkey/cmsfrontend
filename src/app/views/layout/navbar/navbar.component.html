@@ -14,8 +14,9 @@
     <ul class="navbar-nav">
       <li class="nav-item" ngbDropdown>
         <a class="nav-link" ngbDropdownToggle id="languageDropdown" role="button">
-          <img src="assets/images/flags/us.svg"  id="mainimg" class="wd-20 me-1" title="us" alt="us">
-          <span class="fw-bold ms-1 me-1 d-none d-md-inline-block"  id="maintilte">English</span>
+          <img [src]="lang=='en'?'assets/images/flags/us.svg': 'assets/images/flags/eg.svg'"  id="mainimg" class="wd-20 me-1" title="us" alt="us">
+          <span class="fw-bold ms-1 me-1 d-none d-md-inline-block"  id="maintilte" *ngIf="lang =='en'">English</span>
+          <span class="fw-bold ms-1 me-1 d-none d-md-inline-block"  id="maintilte" *ngIf="lang =='ar'">العربية</span>
         </a>
         <div ngbDropdownMenu aria-labelledby="languageDropdown">
           <a ngbDropdownItem class="py-2"  (click)="convert(imgen.src ,'English')"> <img src="assets/images/flags/us.svg" #imgen class="wd-20 me-1" title="us" alt="us"> <span class="ms-1"> English </span></a>

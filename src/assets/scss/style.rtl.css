@@ -11,6 +11,10 @@
   font-weight: 300 !important;
 }
 
+.navbar .navbar-content .navbar-nav {
+
+  margin-left: 0 !important;
+}
 .page-wrapper {
   margin-left: 0px !important;
   margin-right: 240px !important;

@@ -1,6 +1,6 @@
 
-<div class="row">
-  <div class="header col-4 me-4">
+<div class="row" style="direction:ltr ;">
+  <div class="header col-lg-4 col-sm-12 mt-4" style="direction:ltr ;">
 
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
       <!-- This is the tree node template for leaf nodes -->
@@ -10,11 +10,11 @@
           {{node.name}}
       </mat-tree-node>
       <!-- This is the tree node template for expandable nodes -->
-      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild"  #ele1 [id]="node.id" (click)="getelement(ele1)">
           <div class="mat-tree-node">
             <button mat-icon-button matTreeNodeToggle class="btn"
                     [attr.aria-label]="'Toggle ' + node.name">
-              <mat-icon class="mat-icon-rtl-mirror">
+              <mat-icon class="" [ngClass]="{'mat-icon-rtl-mirror':lang==='en','mat-icon-ltr-mirror':lang==='ar'}">
                 {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
               </mat-icon>
             </button>
@@ -30,11 +30,11 @@
     </mat-tree>
   </div>
 
-    <div class="col-lg-7 col-xl-7 stretch-card">
+    <div class="col-lg-8 col-sm-12  mt-4 "  [ngStyle]="{'direction':lang=='ar'?'rtl':'ltr'}">
       <div class="card">
         <div class="card-body">
-          <div class="d-flex justify-content-between align-items-baseline mb-2">
-            <h6 class=" mb-0">My Assignment</h6>
+          <div class="d-flex justify-content-between align-items-baseline mb-1">
+            <h3 class=" mb-0">Organizations</h3>
             <div ngbDropdown class="mb-2">
               <button ngbDropdownToggle class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton7">
                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal" appFeatherIcon></i>
@@ -65,19 +65,21 @@
               <tbody>
                 <ng-container
                 *ngFor="let item of collection  ;let i=index">
-                  <tr  style="cursor: pointer;">
+                  <tr  style="cursor: pointer;"  (click)="openrow(item.id)">
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
-                    <td>{{item.subject}}</td>
-                    <td>{{item.subject}}</td>
-                    <td>{{item.document}}</td>
-                    <td><span class="badge" style="font-size: 16px;"
-                      [ngStyle]="{'color': item.priority=='high' ? 'red' : item.priority=='low'? '#FFC000' :'green'}"
-                      >{{item.priority}}
-                       <i   [ngClass]="{ 'feather icon-arrow-down':item.priority==='low','fa-solid fa-arrow-up': item.priority ==='high' }"> </i>
-                       <i class="fa-solid fa-arrow-trend-down" [hidden]="item.priority!=='cratical'"></i>
-                      </span> </td>
-                    <td>{{item.due_date}}</td>
+                    <td>{{item.keyperson}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.address}}</td>
+                    <td>
+                      {{item.priority}}
+
+                     </td>
+                    <td>
+                      <div class="mb-3">
+                      <img class="wd-80 ht-80 rounded-circle" src="https://via.placeholder.com/80x80" alt="">
+                    </div>
+                  </td>
                     <td>
                     <a [routerLink]="'task/'+item.id">  <i class="link-icon feather icon-book-open " ></i></a>
 

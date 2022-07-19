@@ -14,8 +14,9 @@ export class NavbarAdminComponent implements OnInit {
     private renderer: Renderer2,
     private router: Router
   ) { }
-
+lang:string
   ngOnInit(): void {
+   this.lang=localStorage.getItem("lang")!
   }
 
   /**
@@ -44,6 +45,7 @@ export class NavbarAdminComponent implements OnInit {
     let img=this.document.getElementById("mainimg")
     let span_Title=this.document.getElementById("maintilte")
     img?.setAttribute("src",src)
+    console.log(src)
     span_Title!.textContent=title;
 
     let link = this.document.createElement("link")
@@ -57,8 +59,7 @@ export class NavbarAdminComponent implements OnInit {
 
     }
 
-    location.reload()
-
+   location.reload()
 
 
 

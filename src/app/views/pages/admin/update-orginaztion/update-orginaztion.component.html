@@ -14,11 +14,11 @@
 </div>
 
 
-<div *ngIf="orgbind.id != null"  class="card mt-5" >
+<div   class="card mt-5" >
   <form [formGroup]="orgForm">
   <div class="row card-body" >
     <div class="d-flex justify-content-between align-items-baseline mb-2">
-      <h3 class=" mb-0">Add {{orgbind.name}}</h3>
+      <h3 class=" mb-0">Update {{orginzation.name}}</h3>
 
     </div>
     <div class="col-12"  [ngClass]="{'mt-5 divorg pt-5 pb-5': !(orgbind.id == 4 || orgbind.id == 3 ||orgbind.id == 2 ||orgbind.id == 1 ||orgbind.id == null)}">
@@ -86,8 +86,7 @@
     </div>
     <div class="col-lg-6 col-sm-12 col-md-12 mt-3" *ngIf="orgbind.id== 3 || orgbind.id== 4 || orgbind.id== 5 || orgbind.id== 6 ||orgbind.id== 7  || orgbind.id== 8">
       <div class="col-sm-10">
-        <select class="form-select  " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)"
-        [ngClass]="{'is-valid': orgcontrol?.valid,'is-invalid': orgcontrol?.invalid}">
+        <select class="form-select  " #org aria-label="Default select example"  (change)="selectOrganizationType(org.value)">
           <option selected>Select your Ministry</option>
           <ng-container *ngFor="let item of orgList">
             <option [value]="item.id">{{item.name}}</option>
@@ -105,16 +104,9 @@
 
     <div class="col-lg-6 col-sm-12 col-md-12">
       <div class="mt-4">
-        <label for="inputtext" class="" *ngIf="orgbind">Name of {{orgbind.name}}</label>
+        <label for="inputtext" class="" *ngIf="orgbind">Name of {{orginzation.name}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext"  placeholder="Name of {{orgbind.name}}" formControlName="Name"
-          [ngClass]="{'is-valid':name?.valid,'is-invalid':name?.invalid}">
-          <div *ngIf="name?.invalid && (name?.dirty|| name?.touched)" class="text text-danger">
-            <span *ngIf="name?.errors?.['required']">
-              Full name  is required
-            </span>
-
-          </div>
+          <input type="text" class="form-control" id="inputtext"  placeholder="Name of {{orginzation.name}}" formControlName="Name">
         </div>
       </div>
 
@@ -124,14 +116,7 @@
       <div class="mt-4">
         <label for="inputtext" class="col-sm-2 ">Key Person</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext" placeholder="Key Person" formControlName="keyperson"
-          [ngClass]="{'is-valid':keyperson?.valid,'is-invalid':keyperson?.invalid}">
-          <div *ngIf="keyperson?.invalid && (keyperson?.dirty|| keyperson?.touched)" class="text text-danger">
-            <span *ngIf="keyperson?.errors?.['required']">
-               keyperson  is required
-            </span>
-
-          </div>
+          <input type="text" class="form-control" id="inputtext" placeholder="Key Person" formControlName="keyperson">
         </div>
       </div>
 
@@ -143,17 +128,7 @@
       <div class="mt-4">
         <label for="inputtext" class="" *ngIf="orgbind">Email</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext"  placeholder="Email"
-          [ngClass]="{'is-valid':email?.valid,'is-invalid':email?.invalid}" formControlName="email">
-          <div *ngIf="email?.invalid && (email?.dirty|| email?.touched)" class="text text-danger">
-            <div *ngIf="email?.errors?.['required']">
-              email  is required
-            </div>
-            <div *ngIf="email?.errors?.['email']">
-              Input must be email
-            </div>
-
-          </div>
+          <input type="text" class="form-control" id="inputtext"  placeholder="Email" formControlName="email">
         </div>
       </div>
 
@@ -163,8 +138,7 @@
       <div class=" " *ngFor="let d of address.controls; let i=index" >
         <label for="inputtext" class="col-sm-2 ">Address</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext"
-           placeholder="Address" name="phone{{i+1}}" id="phone{{i+1}}"  [formControlName]="i">
+          <input type="text" class="form-control" id="inputtext" formControlName="address" placeholder="Address" name="phone{{i+1}}" id="phone{{i+1}}"  [formControlName]="i">
           <button class="btn btn-success float-end mt-3 " id="addphone" *ngIf="d.value &&i== address.controls.length-1" type="button" (click)="addAddress()">+</button>
           <button class="btn btn-danger float-end mt-3 me-3 " id="addphone" *ngIf="d.value &&i!=0 &&i== address.controls.length-1 " type="button" (click)="deleteAddress(i)">-</button>
         </div>
@@ -176,7 +150,7 @@
       <div class=" " *ngFor="let p of phone.controls; let i=index" >
         <label for="inputtext" class="col-sm-2 ">Phone</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext" placeholder="Phone" name="phone{{i+1}}" id="phone{{i+1}}"  [formControlName]="i">
+          <input type="text" class="form-control" id="inputtext" formControlName="phone" placeholder="Phone" name="phone{{i+1}}" id="phone{{i+1}}"  [formControlName]="i">
           <button class="btn btn-success float-end mt-3 " id="addphone" *ngIf="p.value &&i== phone.controls.length-1" type="button" (click)="addphone()">+</button>
           <button class="btn btn-danger float-end mt-3 me-3 " id="addphone" *ngIf="p.value &&i!=0 &&i== phone.controls.length-1 " type="button" (click)="deletephone(i)">-</button>
         </div>
@@ -188,8 +162,7 @@
       <div class="mt-4">
         <label for="inputtext" class="" *ngIf="orgbind">Logo of {{orgbind.name}} </label>
         <div class="col-sm-10">
-          <input type="file" class="form-control" id="inputtext"  placeholder="Name of {{orgbind.name}}"
-          [ngClass]="{'is-valid':logo?.valid,'is-invalid':logo?.invalid}"  formControlName="logo">
+          <input type="file" class="form-control" id="inputtext"  placeholder="Name of {{orgbind.name}}">
         </div>
       </div>
 

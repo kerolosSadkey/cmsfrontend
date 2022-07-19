@@ -1,3 +1,6 @@
+import { UpdateOrginaztionComponent } from './update-orginaztion/update-orginaztion.component';
+import { AllUserComponent } from './all-user/all-user.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 import { DefaulPagetAdminComponent } from './defaul-paget-admin/defaul-paget-admin.component';
 import { AllOrginaztionComponent } from './all-orginaztion/all-orginaztion.component';
 import { CreateOrginaztionComponent } from './create-orginaztion/create-orginaztion.component';
@@ -13,7 +16,10 @@ const routes: Routes = [
     ,
     {path:"defaultpageAdmin", component:DefaulPagetAdminComponent},
     {path:"creatOraginaze", component:CreateOrginaztionComponent},
-    {path:"allOraginaze", component:AllOrginaztionComponent}
+    {path:"allOraginaze", component:AllOrginaztionComponent},
+    {path:"updateOraginaze/:id", component:UpdateOrginaztionComponent},
+    {path:"creatUser", component:CreateUserComponent},
+    {path:"allUser", component:AllUserComponent}
    ]
 }];
 
