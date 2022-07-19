@@ -7,6 +7,7 @@ import { CreateOrginaztionComponent } from './create-orginaztion/create-orginazt
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent,
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path:"allOraginaze", component:AllOrginaztionComponent},
     {path:"updateOraginaze/:id", component:UpdateOrginaztionComponent},
     {path:"creatUser", component:CreateUserComponent},
-    {path:"allUser", component:AllUserComponent}
+    {path:"allUser", component:AllUserComponent},
+    {path:"updateUser/:id", component:UpdateUserComponent},
    ]
 }];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-user',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 collection:any[]=[]
   ngOnInit(): void {
     this.collection=[
@@ -32,6 +33,10 @@ collection:any[]=[]
 
 
     ]
+  }
+
+  openrow(id:any){
+    this.router.navigate(["admin/updateUser/"+id])
   }
 
   statusValue:string

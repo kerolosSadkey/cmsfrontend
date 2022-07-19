@@ -21,22 +21,22 @@ orginzation:any=[]
 
     this.collection=[
 
-      {id:1,name:"name1" , email:"emai1@s.com",keyperson:"keyperson1",address:"sohage",phone:"01203586159",due_date:"12-6-2022"},
-      {id:2,name:"name1" , email:"emai1@s.com",keyperson:"keyperson2",address:"sohage",phone:"01123658974",due_date:"12-7-2022"},
-      {id:3,name:"name3", email:"emai1@s.com" ,keyperson:"keyperson3",address:"sohage",phone:"01002378963",due_date:"12-8-2022"},
-      {id:4,name:"name4" , email:"emai1@s.com" , keyperson:"keyperson4",address:"sohage",phone:"01002378963",due_date:"12-9-2022"},
-      {id:5,name:"name5" , email:"emai1@s.com",keyperson:"keyperson5",address:"sohage",phone:"01002378963",due_date:"12-10-2022"},
-      {id:6,name:"name6", email:"emai1@s.com" ,keyperson:"keyperson6",address:"sohage",phone:"01123658974",due_date:"12-11-2022"},
-      {id:7,name:"name7", email:"emai1@s.com" ,keyperson:"keyperson7",address:"assuit",phone:"01123658974",due_date:"12-12-2022"},
-      {id:8,name:"name8" , email:"emai1@s.com",keyperson:"keyperson8",address:"assuit",phone:"01002378963",due_date:"12-11-2022"},
-      {id:9,name:"name9", email:"emai1@s.com" ,keyperson:"keyperson9",address:"assuit",phone:"01002378963",due_date:"12-12-2022"},
-      {id:10,name:"name10" , email:"emai1@s.com",keyperson:"keyperson10",address:"assuit",phone:"01123658974",due_date:"12-10-2022"},
-      {id:11,name:"name11" , email:"emai1@s.com",keyperson:"keyperson11",address:"assuit",phone:"01123658974",due_date:"12-9-2022"},
-      {id:12,name:"name12" , email:"emai1@s.com" ,keyperson:"keyperson12",address:"assuit",phone:"01002378963",due_date:"12-6-2022"},
-      {id:13,name:"name13" , email:"emai1@s.com" ,keyperson:"keyperson13",address:"cairo",phone:"01123658974",due_date:"12-8-2022"},
-      {id:14,name:"name14" , email:"emai1@s.com" ,keyperson:"keyperson14",address:"cairo",phone:"01002378963",due_date:"12-7-2022"},
-      {id:15,name:"name115" , email:"emai1@s.com",keyperson:"keyperson15",address:"cairo",phone:"01123658974",due_date:"12-6-2022"},
-      {id:16,name:"name16" , email:"emai1@s.com",keyperson:"keyperson16",address:"cairo",phone:"01002378963",due_date:"12-6-2022"},
+      {id:1,name:"name1" , email:"emai1@s.com",keyperson:"keyperson1",address:"sohage",priority:"01203586159",due_date:"12-6-2022"},
+      {id:2,name:"name1" , email:"emai1@s.com",keyperson:"keyperson2",address:"sohage",priority:"01123658974",due_date:"12-7-2022"},
+      {id:3,name:"name3", email:"emai1@s.com" ,keyperson:"keyperson3",address:"sohage",priority:"01002378963",due_date:"12-8-2022"},
+      {id:4,name:"name4" , email:"emai1@s.com" , keyperson:"keyperson4",address:"sohage",priority:"01002378963",due_date:"12-9-2022"},
+      {id:5,name:"name5" , email:"emai1@s.com",keyperson:"keyperson5",address:"sohage",priority:"01002378963",due_date:"12-10-2022"},
+      {id:6,name:"name6", email:"emai1@s.com" ,keyperson:"keyperson6",address:"sohage",priority:"01123658974",due_date:"12-11-2022"},
+      {id:7,name:"name7", email:"emai1@s.com" ,keyperson:"keyperson7",address:"assuit",priority:"01123658974",due_date:"12-12-2022"},
+      {id:8,name:"name8" , email:"emai1@s.com",keyperson:"keyperson8",address:"assuit",priority:"01002378963",due_date:"12-11-2022"},
+      {id:9,name:"name9", email:"emai1@s.com" ,keyperson:"keyperson9",address:"assuit",priority:"01002378963",due_date:"12-12-2022"},
+      {id:10,name:"name10" , email:"emai1@s.com",keyperson:"keyperson10",address:"assuit",priority:"01123658974",due_date:"12-10-2022"},
+      {id:11,name:"name11" , email:"emai1@s.com",keyperson:"keyperson11",address:"assuit",priority:"01123658974",due_date:"12-9-2022"},
+      {id:12,name:"name12" , email:"emai1@s.com" ,keyperson:"keyperson12",address:"assuit",priority:"01002378963",due_date:"12-6-2022"},
+      {id:13,name:"name13" , email:"emai1@s.com" ,keyperson:"keyperson13",address:"cairo",priority:"01123658974",due_date:"12-8-2022"},
+      {id:14,name:"name14" , email:"emai1@s.com" ,keyperson:"keyperson14",address:"cairo",priority:"01002378963",due_date:"12-7-2022"},
+      {id:15,name:"name115" , email:"emai1@s.com",keyperson:"keyperson15",address:"cairo",priority:"01123658974",due_date:"12-6-2022"},
+      {id:16,name:"name16" , email:"emai1@s.com",keyperson:"keyperson16",address:"cairo",priority:"01002378963",due_date:"12-6-2022"},
 
 
 

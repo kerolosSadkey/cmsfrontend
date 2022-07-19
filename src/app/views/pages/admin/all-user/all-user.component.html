@@ -33,7 +33,7 @@
           <tbody>
             <ng-container
             *ngFor="let item of collection  ;let i=index">
-              <tr  style="cursor: pointer;">
+              <tr  style="cursor: pointer;" (click)="openrow(item.id)">
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.subject}}</td>
@@ -46,11 +46,11 @@
                >
                   <div class="">
                   <select class="form-select " #status aria-label="Default select example" (change)="chanag(status.value,item.id)"
-                  
+                   [ngClass]="{'text-danger':item.priority=='low' ,'text-success':item.priority=='high' , 'text-warning':item.priority=='cratical' }"
                   style="border: none;">
-                    <option  selected value="A" style="color: green;">Approved</option>
-                      <option value="r" style="color: red;">rejected</option>
-                      <option value="p" style="color: #ffc000;">pendding</option>
+                    <option  [selected]="item.priority=='high'" value="A" style="color: green;">Approved</option>
+                      <option [selected]="item.priority=='low'"  value="r" style="color: red;">rejected</option>
+                      <option [selected]="item.priority=='cratical'"  value="p" style="color: #ffc000;">pendding</option>
 
 
                   </select>
