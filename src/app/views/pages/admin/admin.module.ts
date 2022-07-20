@@ -23,6 +23,9 @@ import { UpdateOrginaztionComponent } from './update-orginaztion/update-orginazt
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserLaserficheComponent } from './user-laserfiche/user-laserfiche.component';
+import { TreeLaserficheComponent } from './tree-laserfiche/tree-laserfiche.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -35,7 +38,8 @@ import { UserLaserficheComponent } from './user-laserfiche/user-laserfiche.compo
     AllUserComponent,
     UpdateOrginaztionComponent,
     UpdateUserComponent,
-    UserLaserficheComponent
+    UserLaserficheComponent,
+    TreeLaserficheComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +55,9 @@ import { UserLaserficheComponent } from './user-laserfiche/user-laserfiche.compo
     NgApexchartsModule,
     MatTreeModule,
     NgxPaginationModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    MatFormFieldModule
   ]
 })
 export class AdminModule { }

@@ -103,6 +103,10 @@ export const MENUAdmin: MenuItemAdmin[] = [
         label: 'Laserfiche User',
         link: 'UserLaserfiche',
       },
+      {
+        label: 'Laserfiche Tree',
+        link: 'treeLaserfiche',
+      },
 
     ]
   }

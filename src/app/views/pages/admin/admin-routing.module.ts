@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { TreeLaserficheComponent } from './tree-laserfiche/tree-laserfiche.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent,
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path:"allUser", component:AllUserComponent},
     {path:"updateUser/:id", component:UpdateUserComponent},
     {path:"UserLaserfiche", component:UserLaserficheComponent},
+    {path:"treeLaserfiche", component:TreeLaserficheComponent},
    ]
 }];
 
