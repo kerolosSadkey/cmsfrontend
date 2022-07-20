@@ -5,15 +5,15 @@
   <form [formGroup]="formdata">
   <div class="row card-body" >
     <div class="d-flex justify-content-between align-items-baseline mb-2">
-      <h3 class=" mb-0">Add User </h3>
+      <h3 class=" mb-0">Add User LaserFiche </h3>
 
     </div>
 
-   
+
 
     <div class="col-lg-4 col-sm-12 col-md-12">
       <div class="mt-4">
-        <label for="inputtext" class="" >Full Name</label>
+        <label for="inputtext" class="" >User Name</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="inputtext"  placeholder="Full Name"
           [ngClass]="{'is-valid':name.valid,'is-invalid':name.invalid}" formControlName="name">
@@ -28,58 +28,6 @@
       </div>
 
     </div>
-
-    <div class="col-lg-4 col-sm-12 col-md-12">
-      <div class="col-sm-10 mt-4">
-        <label for="inputtext" class="" >Department</label>
-      <select class="form-select " #org aria-label="Default select example"
-      [ngClass]="{'is-valid':department.valid,'is-invalid':department.invalid}" formControlName="department">
-        <option disabled selected >Select department</option>
-        <ng-container >
-          <option [value]="">for test</option>
-          <option [value]="">for test2</option>
-
-        </ng-container>
-
-      </select>
-    </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-12 col-md-12">
-      <div class="col-sm-10 mt-4">
-        <label for="inputtext" class="" >Position</label>
-      <select class="form-select " #org aria-label="Default select example"
-      [ngClass]="{'is-valid':position.valid,'is-invalid':position.invalid}" formControlName="position">
-        <ng-container >
-          <option [value]="">for test</option>
-          <option [value]="">for test2</option>
-
-        </ng-container>
-
-      </select>
-    </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-12 col-md-12 ">
-      <div class="mt-4">
-        <label for="inputtext" class="col-sm-2 ">Email</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputtext" placeholder="Email"
-          [ngClass]="{'is-valid':email.valid,'is-invalid':email.invalid}" formControlName="email">
-          <div *ngIf="email?.invalid && (email.dirty|| email?.touched)" class="text text-danger">
-            <div *ngIf="email.errors?.['required']">
-              email  is required
-            </div>
-            <div *ngIf="email.errors?.['email']">
-              Input must be email
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-
 
 
     <div class="col-lg-4 col-sm-12 col-md-12">
@@ -127,21 +75,7 @@
 
     </div>
 
-    <div class="col-lg-4 col-sm-12 col-md-12">
-      <div class="col-sm-10 mt-4">
-        <label for="inputtext" class="" >Role</label>
-      <select class="form-select " #org aria-label="Default select example"
-      [ngClass]="{'is-valid':role.valid,'is-invalid':role.invalid}" formControlName="role">
-        <option disabled selected >Select Role</option>
-        <ng-container >
-          <option [value]="">for test</option>
-          <option [value]="">for test2</option>
 
-        </ng-container>
-
-      </select>
-    </div>
-    </div>
     <div class="col-lg-12 col-sm-12 col-md-12 text-center">
       <div class="mt-5">
 
@@ -158,7 +92,67 @@
 </div>
 
 
+<div class="col-lg-12 col-xl-12 stretch-card mt-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-baseline mb-1">
+        <h3 class=" mb-0">Users</h3>
+        <div ngbDropdown class="mb-2">
+          <button ngbDropdownToggle class="btn p-0 no-dropdown-toggle-icon" type="button" id="dropdownMenuButton7">
+            <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal" appFeatherIcon></i>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownMenuButton7">
+            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="eye" appFeatherIcon class="icon-sm me-2"></i> <span class="">View</span></a>
+            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="edit-2" appFeatherIcon class="icon-sm me-2"></i> <span class="">Edit</span></a>
+            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="trash" appFeatherIcon class="icon-sm me-2"></i> <span class="">Delete</span></a>
+            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="printer" appFeatherIcon class="icon-sm me-2"></i> <span class="">Print</span></a>
+            <a ngbDropdownItem class="d-flex align-items-center" href="" (click)="false"><i data-feather="download" appFeatherIcon class="icon-sm me-2"></i> <span class="">Download</span></a>
+          </div>
+        </div>
+      </div>
 
+
+
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead>
+            <tr>
+              <th class="pt-0">#</th>
+              <th class="pt-0">Full Name</th>
+              <th class="pt-0">Department</th>
+              <th class="pt-0">position</th>
+              <th class="pt-0">Email</th>
+              <th class="pt-0">Role</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container>
+              <tr  style="cursor: pointer;" >
+                <td>item.id</td>
+                <td>item.name</td>
+                <td>item.subject</td>
+                <td>item.subject</td>
+                <td>item.document</td>
+                <td>Admin </td>
+               <td   >
+
+
+              </td>
+
+
+              </tr>
+
+
+            </ng-container>
+
+
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+</div>
 
 
 

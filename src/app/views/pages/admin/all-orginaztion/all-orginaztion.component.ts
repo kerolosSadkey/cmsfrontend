@@ -14,7 +14,7 @@ export class AllOrginaztionComponent implements OnInit {
   dataSource = new MatTreeNestedDataSource<FoodNode>();
 
   constructor(private router:Router) {
-    this.dataSource.data = TREE_DATA;
+   
   }
 
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
@@ -46,6 +46,19 @@ export class AllOrginaztionComponent implements OnInit {
     this.collectiontemp=this.collection
     this.lang=localStorage.getItem("lang")!
   }
+
+  selectsectoer(val:any){
+    if(val==1){
+      this.dataSource.data=[]
+      this.dataSource.data=TREE_DATA.filter(ele=>ele.id == 1 ||  ele.id==2)
+
+    }else{
+      this.dataSource.data=[]
+      this.dataSource.data=TREE_DATA.filter(ele=>ele.id !== 1 &&  ele.id !==2)
+
+    }
+    }
+
 oneorg:any
 collectiontemp:any[]=[]
 lang:string
@@ -62,6 +75,7 @@ lang:string
   openrow(id:any){
     this.router.navigate(["admin/updateOraginaze/"+id])
    }
+
 }
 
 

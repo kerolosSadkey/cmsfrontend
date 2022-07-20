@@ -1,11 +1,13 @@
+
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-orginaztion',
   templateUrl: './create-orginaztion.component.html',
-  styleUrls: ['./create-orginaztion.component.scss']
+  styleUrls: ['./create-orginaztion.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CreateOrginaztionComponent implements OnInit {
 
@@ -14,10 +16,7 @@ orgList:orginzationType[]=[]
 orgForm:FormGroup
 
   ngOnInit(): void {
-    this.orgList=orginzationMenu
-
-
-
+    console.log(this.orgList)
     //Reactive form and validation
     this.orgForm=this.formbulider.group({
       Name:['',[Validators.required,Validators.minLength(5)]],
@@ -27,18 +26,32 @@ orgForm:FormGroup
       phone:this.formbulider.array(
       [ this.formbulider.control('')],[Validators.required,Validators.maxLength(11)] ),
       address:this.formbulider.array( [ this.formbulider.control('')],[Validators.required]  ),
-      logo:['',[Validators.required]],
+      logo:['',[Validators.required,Validators.pattern("/image\/*/")]],
 
 
     })
     }
 
   orgbind:orginzationType={}
+
+  selectsectoer(val:any){
+  if(val==1){
+    this.orgList=[]
+    this.orgList=orginzationMenu.filter(ele=>ele.id == 1 ||  ele.id==2)
+
+
+  console.log(this.orgList)
+  }else{
+    this.orgList=[]
+    this.orgList=orginzationMenu.filter(ele=>ele.id !== 1 &&  ele.id !==2)
+
+  }
+  }
   selectOrganizationType(val:any){
     console.log(val)
   this.orgbind=this.orgList.find(o=>o.id==val)!
     console.log(this.orgbind)
-   
+
   }
 
 
@@ -66,8 +79,29 @@ orgForm:FormGroup
   deleteAddress(i:number){
    this.address.removeAt(i);
   }
+message:string
+url:string | ArrayBuffer |null
+  uploadfile(file:any){
+    const files = file.target.files;
+    if (files.length === 0)
+        return;
 
+    const mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+          file.target.value=""
+          this.url=""
+       document.getElementById("logo")?.setAttribute("src","")
+            return;
+    }
 
+    const reader = new FileReader();
+   // this.imagePath = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+        this.url = reader.result;
+    }
+  }
 
 }
 
@@ -86,33 +120,33 @@ export const orginzationMenu: orginzationType[] = [
     },
     {
       id:2,
-     name:"holding company"
+     name:"Agenecy"
     },
     {
       id:3,
-     name:"staff"
+     name:"Holding company"
     },
     {
       id:4,
-     name:"company"
+     name:"Company"
     },
     {
       id:5,
-     name:"Centralized management /public"
+     name:"Central Department"
     },
     {
       id:6,
-     name:"sub management"
+     name:"General Department"
     },
 
     {
       id:7,
-     name:"management"
+     name:"Department"
     },
 
     {
       id:8,
-     name:"department"
+     name:"Section"
     },
 
 

@@ -98,7 +98,7 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
-    label: ' appliction setup',
+    label: 'Appliction Setup',
     icon: 'tool',
     link: '/admin',
     notify:false,

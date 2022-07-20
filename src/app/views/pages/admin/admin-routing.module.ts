@@ -1,3 +1,4 @@
+import { UserLaserficheComponent } from './user-laserfiche/user-laserfiche.component';
 import { UpdateOrginaztionComponent } from './update-orginaztion/update-orginaztion.component';
 import { AllUserComponent } from './all-user/all-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path:"creatUser", component:CreateUserComponent},
     {path:"allUser", component:AllUserComponent},
     {path:"updateUser/:id", component:UpdateUserComponent},
+    {path:"UserLaserfiche", component:UserLaserficheComponent},
    ]
 }];
 

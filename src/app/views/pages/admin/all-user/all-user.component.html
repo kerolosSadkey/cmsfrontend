@@ -16,6 +16,18 @@
           </div>
         </div>
       </div>
+
+      <div class=" mt-4 mb-5  col-7 row mx-auto">
+        <div class="form-outline col-11 m-0 mx-auto">
+
+          <input id="search-input" type="text" id="form1" name="search" #sr class="form-control m-0" placeholder="Search"  (input)="search(sr.value)"/>
+
+        </div>
+        <button type="button" class="btn btn-primary  m-0 d-inline col-1"  style="color: #fff;">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
       <div class="table-responsive">
         <table class="table table-hover mb-0">
           <thead>
@@ -32,8 +44,8 @@
           </thead>
           <tbody>
             <ng-container
-            *ngFor="let item of collection  ;let i=index">
-              <tr  style="cursor: pointer;" (click)="openrow(item.id)">
+            *ngFor="let item of collection| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ;let i=index">
+              <tr  style="cursor: pointer;" >
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.subject}}</td>
@@ -59,7 +71,7 @@
 
               </td>
                 <td>
-                <a [routerLink]="'task/'+item.id">  <i class="link-icon feather icon-book-open " ></i></a>
+                <a  (click)="openrow(item.id)">  <i class="link-icon feather icon-book-open "  style="color: #00cafd;"></i></a>
 
                 </td>
 
@@ -72,7 +84,8 @@
           </tbody>
         </table>
       </div>
-
+      <ngb-pagination class="d-flex justify-content-center mt-5"
+      [(page)]="page" [pageSize]="pageSize" [collectionSize]="collection.length"></ngb-pagination>
     </div>
   </div>
 </div>

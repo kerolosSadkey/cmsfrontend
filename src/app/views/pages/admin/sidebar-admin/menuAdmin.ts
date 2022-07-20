@@ -94,6 +94,18 @@ export const MENUAdmin: MenuItemAdmin[] = [
       },
     ]
   },
+  {
+    label: 'Administration',
+    icon: 'framer',
+    notify:true,
+    subItems: [
+      {
+        label: 'Laserfiche User',
+        link: 'UserLaserfiche',
+      },
+
+    ]
+  }
 
 
 

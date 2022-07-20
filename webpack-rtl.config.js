@@ -7,17 +7,17 @@
  const WebpackRTLPlugin = require("webpack-rtl-plugin");
  const WebpackMessages = require("webpack-messages");
  const del = require("del");
- 
+
  // theme name
  const themeName = "nobleui";
  // global variables
  const rootPath = path.resolve(__dirname);
  const distPath = rootPath + "/src/assets";
- 
+
  const entries = {
    "scss/style": "./src/assets/scss/style.scss"
  };
- 
+
  const mainConfig = function() {
    return {
      mode: "development",
@@ -66,7 +66,7 @@
              MiniCssExtractPlugin.loader,
              "css-loader",
              {
-               loader: "sass-loader",
+               loader:  'sass-loader',
                options: {
                  sourceMap: true
                }
@@ -77,8 +77,7 @@
      }
    };
  };
- 
+
  module.exports = function() {
    return [mainConfig()];
  };
- 

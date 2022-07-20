@@ -21,6 +21,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { AllUserComponent } from './all-user/all-user.component';
 import { UpdateOrginaztionComponent } from './update-orginaztion/update-orginaztion.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { UserLaserficheComponent } from './user-laserfiche/user-laserfiche.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -32,7 +34,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     CreateUserComponent,
     AllUserComponent,
     UpdateOrginaztionComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    UserLaserficheComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +50,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     NgbDatepickerModule,
     NgApexchartsModule,
     MatTreeModule,
+    NgxPaginationModule,
     MatIconModule
   ]
 })

@@ -10,6 +10,9 @@ export class AllUserComponent implements OnInit {
 
   constructor(private router:Router) { }
 collection:any[]=[]
+page: number = 1;
+collectionTemp:any[]=[]
+pageSize: number = 4;
   ngOnInit(): void {
     this.collection=[
 
@@ -33,6 +36,7 @@ collection:any[]=[]
 
 
     ]
+    this.collectionTemp=this.collection
   }
 
   openrow(id:any){
@@ -45,5 +49,20 @@ collection:any[]=[]
   this.itemId=id
   this.statusValue=val
   console.log(this.statusValue)
+  }
+
+  search(val:any){
+
+
+    if(val !==''){
+      console.log(val)
+    this.collection=this.collection.filter(ele => ele.name.toLowerCase().includes(val) )
+    ||this.collection.filter(ele => ele.id.toLowerCase().includes(val) )
+    console.log(this.collection)
+    }else{
+      console.log("dk")
+       this.collection=this.collectionTemp
+    }
+
   }
 }
