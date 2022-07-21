@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   style:"style.rtl.css",
-  APIBaseURL:""
+  APIBaseURL:"https://localhost:44357/api"
 };
 
 /*

@@ -91,7 +91,23 @@
       </div>
 
     </div>
+    <div class="col-lg-4 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" >Repository Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext"  placeholder="Full Name"
+          [ngClass]="{'is-valid':reponame.valid,'is-invalid':reponame.invalid}" formControlName="reponame">
 
+          <div *ngIf="reponame?.invalid && (reponame.dirty|| reponame?.touched)" class="text text-danger">
+            <span *ngIf="reponame.errors?.['required']">
+              Repository is required
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
     <div class="col-lg-4 col-sm-12 col-md-12">
       <div class="mt-4">
         <label for="inputtext" class="" >Number Of session</label>
@@ -113,11 +129,32 @@
 
     </div>
 
+    <div class="col-lg-4 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" >Number Of Open Session</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext"  placeholder="Number Of session"
+          [ngClass]="{'is-valid':opensession.valid,'is-invalid':opensession.invalid}" formControlName="opensession">
+
+          <div *ngIf="opensession?.invalid && (opensession.dirty|| opensession?.touched)" class="text text-danger">
+            <span *ngIf="opensession.errors?.['required']">
+              Number Of Session  is required
+            </span>
+            <span *ngIf="opensession.errors?.['pattern']">
+              Number Of Session  must be number
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <div class="col-lg-12 col-sm-12 col-md-12 text-center">
       <div class="mt-3">
 
         <div class="col-sm-5 float-end">
-         <button type="submit" class="btn w-50" style="background-color:#00cafd; color:#fff ;"> Submit</button>
+         <button type="submit" class="btn w-50" id="btnsubmit" style="background-color:#00cafd; color:#fff ;"> Submit</button>
         </div>
       </div>
 
@@ -170,9 +207,9 @@
                 <td>item.name</td>
                 <td>item.subject</td>
                 <td>item.subject</td>
-                <td><i class="fa-solid fa-pen-to-square"></i></td>
+                <td><i class="fa-solid fa-pen-to-square" (click)="updaterow(1)"></i></td>
                 <td><i class="fa-solid fa-delete-left"></i></td>
-               <td   >
+               <td>
 
 
               </td>

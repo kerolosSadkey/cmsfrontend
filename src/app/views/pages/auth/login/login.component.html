@@ -42,12 +42,10 @@
                   <div class="mb-3 col-10 text-center mx-auto">
 
                     <input type="text" formControlName="email" id="exampleInputEmail1" name="email"
-                     class="form-control " [ngClass]="{'is-valid':email.valid,'is-invalid':email.invalid}" id="exampleInputEmail1" placeholder="Email" value="">
+                     class="form-control " [ngClass]="{'is-valid':email.valid,'is-invalid':email.invalid}" id="exampleInputEmail1" placeholder="Email OR User name" value="">
 
                      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
-                      <div *ngIf="email.errors?.email" class="text-danger">
-                        input must be email
-                     </div>
+
                       <div *ngIf="email.errors?.required" class="text-danger">
                       email is required.
                       </div>
@@ -85,7 +83,7 @@
                       Login With Microsoft</button>
 
                   </div>
-                 
+
                   <a routerLink="/auth/register" class="d-block mt-3 text-muted text-center">Not a user? <span style="color: #00cafd;">Sign up</span></a>
                 </form>
               </div>

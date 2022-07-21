@@ -88,13 +88,13 @@ url:string | ArrayBuffer |null
 
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-        this.message = "Only images are supported.";
+        this.message = "Only images are supported. as Extension (jpg,png ....)";
           file.target.value=""
           this.url=""
        document.getElementById("logo")?.setAttribute("src","")
             return;
     }
-
+    this.message =""
     const reader = new FileReader();
    // this.imagePath = files;
     reader.readAsDataURL(files[0]);
@@ -124,7 +124,7 @@ export const orginzationMenu: orginzationType[] = [
     },
     {
       id:3,
-     name:"Holding company"
+     name:"Holding Company"
     },
     {
       id:4,

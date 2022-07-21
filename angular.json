@@ -89,6 +89,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "browserTarget": "nobleui-angular:build:production"
@@ -102,7 +105,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nobleui-angular:build"
+            "browserTarget": "nobleui-angular:build",
+
           }
         },
         "test": {

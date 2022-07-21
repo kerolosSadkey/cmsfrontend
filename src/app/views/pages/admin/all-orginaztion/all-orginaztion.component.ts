@@ -14,7 +14,7 @@ export class AllOrginaztionComponent implements OnInit {
   dataSource = new MatTreeNestedDataSource<FoodNode>();
 
   constructor(private router:Router) {
-   
+
   }
 
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
@@ -97,7 +97,7 @@ interface FoodNode {
 const TREE_DATA: FoodNode[] = [
   {
     id:1,name: 'Ministry1',
-    children: [{id:1,name: 'staff1'}, {id:2,name: 'staff2'}, {id:3,name: 'staff3'}],
+    children: [{id:1,name: 'Agenecy1'}, {id:2,name: 'Agenecy2'}, {id:3,name: 'Agenecy3'}],
   },
   {
     id:5,name: 'holding company',
@@ -105,9 +105,9 @@ const TREE_DATA: FoodNode[] = [
       {
         id:1,name: 'company',
         children: [
-          {id:1,name: 'centerlize managment1'}, {id:2,name: 'centerlize managment2'},
-          {id:3,name: 'centerlize managment3'}, {id:4,name: 'centerlize managment4'},
-          {id:5,name: 'centerlize managment5'}, {id:6,name: 'centerlize managment6', children:[
+          {id:1,name: 'Centeral Department1'}, {id:2,name: 'Centeral Department2'},
+          {id:3,name: 'Centeral Department3'}, {id:4,name: 'Centeral Department4'},
+          {id:5,name: 'Centeral Department5'}, {id:6,name: 'Centeral Department6', children:[
             {id:7,name:"sub managment"}
           ]},
 
@@ -115,7 +115,7 @@ const TREE_DATA: FoodNode[] = [
       },
       {
         id:1,name: 'campany',
-        children: [{id:7,name: 'centerlize managment1'}, {id:4,name: 'centerlize managment2'}],
+        children: [{id:7,name: 'Centeral Department1'}, {id:4,name: 'Centeral Department2'}],
       },
     ],
   },

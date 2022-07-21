@@ -56,8 +56,10 @@ pageSize: number = 4;
 
     if(val !==''){
       console.log(val)
-    this.collection=this.collection.filter(ele => ele.name.toLowerCase().includes(val) )
-    ||this.collection.filter(ele => ele.id.toLowerCase().includes(val) )
+    this.collection=this.collection.filter(ele => ele.subject.toLowerCase().includes(val)
+     || ele.name.toLowerCase().includes(val) || ele.id==val )
+
+
     console.log(this.collection)
     }else{
       console.log("dk")

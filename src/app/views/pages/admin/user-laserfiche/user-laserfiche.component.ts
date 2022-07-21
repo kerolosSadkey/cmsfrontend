@@ -19,8 +19,10 @@ export class UserLaserficheComponent implements OnInit {
         name: ['',[Validators.required]],
         email: ['',[Validators.email, Validators.required]],
         ip: ['',[ Validators.required]],
+        reponame: ['',[Validators.required]],
         numofsession: ['',[ Validators.required,Validators.pattern(`^[0-9]+$`)]],
-        username: ['',[Validators.required]],
+        opensession: ['',[ Validators.required,Validators.pattern(`^[0-9]+$`)]],
+
         password:['',[Validators.required,Validators.minLength(6),Validators.pattern(`(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}`) ]],
         confirm: ["", [Validators.required]]
     }, { validators: [this.matchPassword('password', 'confirm') ]});
@@ -51,8 +53,13 @@ export class UserLaserficheComponent implements OnInit {
         get phone(){ return this.formdata.get('phone')!;}
         get ip(){return this.formdata.get('ip')!;}
         get numofsession(){ return this.formdata.get('numofsession')!;}
-        get username(){return this.formdata.get('username')!;}
+        get opensession(){ return this.formdata.get('opensession')!;}
+        get reponame(){return this.formdata.get('reponame')!;}
         get password(){return this.formdata.get('password')!;}
         get confirm(){return this.formdata.get('confirm')!;}
 
+
+        updaterow(id:any){
+          document.getElementById("btnsubmit")!.innerHTML="Upadate"
+        }
 }

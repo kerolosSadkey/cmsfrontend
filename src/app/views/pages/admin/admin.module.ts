@@ -56,8 +56,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatTreeModule,
     NgxPaginationModule,
     MatIconModule,
-    MatCheckboxModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCheckboxModule
   ]
 })
 export class AdminModule { }

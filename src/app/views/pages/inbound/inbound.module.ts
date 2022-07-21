@@ -6,8 +6,12 @@ import { CommonModule } from '@angular/common';
 import { InboundRoutingModule } from './inbound-routing.module';
 import { InboundComponent } from './inbound.component';
 import { CreatCorrespondenceComponent } from './creat-correspondence/creat-correspondence.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown"
+import { MatCheckboxModule } from '@angular/material/checkbox/checkbox-module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 @NgModule({
   declarations: [
     InboundComponent,
@@ -19,7 +23,11 @@ import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown"
     InboundRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    MatChipsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatAutocompleteModule
   ],
   exports:[
 

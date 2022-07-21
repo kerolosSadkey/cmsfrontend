@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../core/Services/Authservice/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -12,12 +13,12 @@ export class LoginComponent implements OnInit {
   returnUrl: any;
   formdata:FormGroup
   constructor(private router: Router, private route: ActivatedRoute,
-    private fb:FormBuilder) { }
+    private fb:FormBuilder,private AuthService:AuthService ) { }
 
   ngOnInit(): void {
 
     this.formdata = this.fb.group({
-      email: ['',[Validators.email, Validators.required]],
+      email: ['',[ Validators.required]],
       password: ['',Validators.required],
 
   });
@@ -34,20 +35,27 @@ export class LoginComponent implements OnInit {
   }
 
   onLoggedin(e: Event) {
-    e.preventDefault();
-    localStorage.setItem('isLoggedin', 'true');
-    if (localStorage.getItem('isLoggedin')) {
 
-      Swal.fire({
-        icon: 'success',
-        title:'Login successfully!',
-       text: 'You clicked the button!',
-        showConfirmButton: false,
-        timer: 2000,
-      }).then(()=>{
-        this.router.navigate(["/"]);
-      })
-    }
+    this.AuthService.login(this.email.value,this.password.value).subscribe(
+      ()=>{},
+      (err)=>{},
+      ()=>{
+        localStorage.setItem('isLoggedin', 'true');
+        if (localStorage.getItem('isLoggedin')) {
+
+          Swal.fire({
+            icon: 'success',
+            title:'Login successfully!',
+           text: 'You clicked the button!',
+            showConfirmButton: false,
+            timer: 2000,
+          }).then(()=>{
+            this.router.navigate(["/"]);
+          })
+        }
+      }
+    )
+
   }
 
 }
