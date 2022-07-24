@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi} from '@fullcalendar/angular';
 import { Draggable } from '@fullcalendar/interaction';
 
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { createEventId, INITIAL_EVENTS } from '../apps/calendar/event-utils';
 
 @Component({
   selector: 'app-dashboard',
@@ -53,11 +55,36 @@ export class DashboardComponent implements OnInit {
   pageSizeMytask: number = 4;
   constructor(private calendar: NgbCalendar) {}
   @ViewChild('externalEvents', {static: true}) externalEvents: ElementRef;
+  currentEvents: EventApi[] = [];
+  calendarOptions: CalendarOptions = {
+    headerToolbar: {
+      left: 'prev,today,next',
+      center: 'title',
+      right: 'listWeek,timeGridDay,timeGridWeek,dayGridMonth'
+    },
+    initialView: 'dayGridMonth',
+    initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
+    weekends: true,
+    editable: true,
+    selectable: true,
+    selectMirror: true,
+    dayMaxEvents: true,
+    select: this.handleDateSelect.bind(this),
+    eventClick: this.handleEventClick.bind(this),
+    eventsSet: this.handleEvents.bind(this)
+    /* you can update a remote database when these fire:
+    eventAdd:
+    eventChange:
+    eventRemove:
+    */
+  }
+
   ngOnInit(): void {
    this.convert()
 
 
     // For external-events dragging
+
 
 
     this.collection=[
@@ -144,6 +171,35 @@ export class DashboardComponent implements OnInit {
     this.monthlySalesChartOptions.yaxis.title.offsetX = -70;
   }
 
+
+  handleDateSelect(selectInfo: DateSelectArg) {
+    const title = prompt('Please enter a new title for your event');
+    const calendarApi = selectInfo.view.calendar;
+
+    calendarApi.unselect(); // clear date selection
+
+    if (title) {
+      calendarApi.addEvent({
+        id: createEventId(),
+        title,
+        start: selectInfo.startStr,
+        end: selectInfo.endStr,
+        allDay: selectInfo.allDay,
+        backgroundColor: 'rgba(0,204,204,.25)',
+        borderColor: '#00cccc'
+      });
+    }
+  }
+
+  handleEventClick(clickInfo: EventClickArg) {
+    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+      clickInfo.event.remove();
+    }
+  }
+
+  handleEvents(events: EventApi[]) {
+    this.currentEvents = events;
+  }
   convert(){
 
 

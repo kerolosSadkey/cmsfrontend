@@ -11,7 +11,7 @@ import { INITIAL_EVENTS, createEventId } from './event-utils';
 })
 export class CalendarComponent implements OnInit {
 
-  @ViewChild('externalEvents', {static: true}) externalEvents: ElementRef;
+  @ViewChild('externalEvents', {static: true}) externalEvents: ElementRef<any>;
 
   calendarOptions: CalendarOptions = {
     headerToolbar: {
