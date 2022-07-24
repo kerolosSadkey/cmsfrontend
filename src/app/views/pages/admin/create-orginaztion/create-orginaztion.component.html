@@ -24,7 +24,7 @@
 
 
 <div *ngIf="orgbind.id != null"  class="card mt-5" >
-  <form [formGroup]="orgForm">
+  <form [formGroup]="orgForm"  (ngSubmit)="submit()">
   <div class="row card-body" >
     <div class="d-flex justify-content-between align-items-baseline mb-2">
       <h3 class=" mb-0">Add {{orgbind.name}}</h3>
@@ -170,6 +170,41 @@
       </div>
 
     </div>
+
+    <div class="col-lg-4 col-sm-12 col-md-12 ">
+      <div class="mt-4">
+        <label for="inputtext" class="col-sm-10 ">Fax</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext" placeholder="Fax" formControlName="fax"
+          [ngClass]="{'is-valid':fax?.valid,'is-invalid':fax?.invalid}">
+          <div *ngIf="fax?.invalid && (fax?.dirty|| fax?.touched)" class="text text-danger">
+            <span *ngIf="fax?.errors?.['required']">
+               Fax  is required
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-4 col-sm-12 col-md-12 ">
+      <div class="mt-4">
+        <label for="inputtext" class="col-sm-10 ">Land Line</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext" placeholder="Land Line" formControlName="landline"
+          [ngClass]="{'is-valid':landline?.valid,'is-invalid':landline?.invalid}">
+          <div *ngIf="landline?.invalid && (landline?.dirty|| landline?.touched)" class="text text-danger">
+            <span *ngIf="landline?.errors?.['required']">
+               Lind Line  is required
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <div class="col-lg-4 col-sm-12 col-md-12 ">
       <div class="mt-4">
         <label for="inputtext" class="col-sm-10 ">Key Person</label>
@@ -186,6 +221,8 @@
       </div>
 
     </div>
+
+
 
 
 
@@ -211,6 +248,24 @@
 
 
 
+
+    <div class="col-lg-4 col-sm-12 col-md-12">
+      <div class="mt-4">
+        <label for="inputtext" class="" *ngIf="orgbind">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputtext"  placeholder="Description"
+          [ngClass]="{'is-valid':description?.valid,'is-invalid':description?.invalid}" formControlName="description">
+          <div *ngIf="description?.invalid && (description?.dirty|| description?.touched)" class="text text-danger">
+            <div *ngIf="description?.errors?.['required']">
+              Description  is required
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
     <div class="col-lg-4 col-sm-12 col-md-12">
       <div class="mt-4">
         <label for="inputtext" class="" *ngIf="orgbind">Logo of {{orgbind.name}} </label>

@@ -1,7 +1,9 @@
+import { IOrganization } from './../../../../core/Model/iorganization';
 
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrganizationService } from 'src/app/core/Services/organization.service';
 
 @Component({
   selector: 'app-create-orginaztion',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class CreateOrginaztionComponent implements OnInit {
 
-  constructor(private router:Router ,private formbulider:FormBuilder) { }
+  constructor(private router:Router ,private formbulider:FormBuilder,private orgservice:OrganizationService) { }
 orgList:orginzationType[]=[]
 orgForm:FormGroup
 
@@ -23,9 +25,12 @@ orgForm:FormGroup
       orgcontrol:['',[Validators.required]],
       keyperson:['',[Validators.required,Validators.minLength(5)]],
       email:['',[Validators.required,Validators.email]],
+      description:['',[Validators.required]],
       phone:this.formbulider.array(
       [ this.formbulider.control('')],[Validators.required,Validators.maxLength(11)] ),
       address:this.formbulider.array( [ this.formbulider.control('')],[Validators.required]  ),
+      fax:['',[Validators.required]],
+      landline:['',[Validators.required]],
       logo:['',[Validators.required,Validators.pattern("/image\/*/")]],
 
 
@@ -62,6 +67,9 @@ orgForm:FormGroup
   get phone(){ return this.orgForm.get("phone") as FormArray }
   get address(){ return this.orgForm.get("address") as FormArray }
   get logo(){return this.orgForm.get("logo")}
+  get description(){return this.orgForm.get("description")}
+  get fax(){return this.orgForm.get("fax")}
+  get landline(){return this.orgForm.get("landline")}
   addphone(){
 
     this.phone.push(this.formbulider.control(''))
@@ -101,6 +109,35 @@ url:string | ArrayBuffer |null
     reader.onload = (_event) => {
         this.url = reader.result;
     }
+  }
+org:IOrganization={
+  id: 0,
+  name: '',
+  email: '',
+  Description: '',
+  Address: '',
+  phone: '',
+  fax: '',
+  landline: '',
+  logo: '',
+  PerantId: 0
+}
+  submit(){
+this.org.name=this.name?.value
+this.org.Address=this.address.value
+this.org.phone=this.phone.value
+this.org.Description=this.description?.value
+this.org.fax=this.fax?.value
+this.org.email=this.email?.value
+this.org.landline=this.landline?.value
+
+// this.org.PerantId=this.
+console.log(this.org)
+ this.orgservice.save(this.org).subscribe(
+  ()=>{},
+  (err)=>{},
+  ()=>{}
+ )
   }
 
 }

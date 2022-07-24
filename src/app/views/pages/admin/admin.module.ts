@@ -17,7 +17,7 @@ import { DefaulPagetAdminComponent } from './defaul-paget-admin/defaul-paget-adm
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
-import { CreateUserComponent } from './create-user/create-user.component';
+import { ChecklistDatabase, CreateUserComponent } from './create-user/create-user.component';
 import { AllUserComponent } from './all-user/all-user.component';
 import { UpdateOrginaztionComponent } from './update-orginaztion/update-orginaztion.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
@@ -58,6 +58,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule
+  ],
+  providers:[
+    ChecklistDatabase
   ]
 })
 export class AdminModule { }
