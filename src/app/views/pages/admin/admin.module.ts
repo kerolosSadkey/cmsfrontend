@@ -26,6 +26,7 @@ import { UserLaserficheComponent } from './user-laserfiche/user-laserfiche.compo
 import { TreeLaserficheComponent } from './tree-laserfiche/tree-laserfiche.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { TreeviewModule } from 'ngx-treeview';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -57,7 +58,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     NgxPaginationModule,
     MatIconModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    TreeviewModule
   ],
   providers:[
     ChecklistDatabase

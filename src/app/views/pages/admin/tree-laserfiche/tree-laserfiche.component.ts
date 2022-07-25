@@ -2,6 +2,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { TreeviewItem } from 'ngx-treeview';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -21,6 +22,7 @@ export class TodoItemFlatNode {
  * The Json object for to-do list data.
  */
 const TREE_DATA = {
+
   Groceries: {
     'Almond Meal flour': null,
     'Organic eggs': null,
@@ -31,6 +33,7 @@ const TREE_DATA = {
       Orange: null,
     },
   },
+
   Reminders: ['Cook dinner', 'Read the Material Design spec', 'Upgrade Application to Angular'],
 };
 
@@ -50,7 +53,7 @@ export class ChecklistDatabase {
   initialize() {
     // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
     //     file node as children.
-    const data = this.buildFileTree(TREE_DATA, 0);
+    const data = this.buildFileTree(TREE_DATA, 1);
 
     // Notify the change.
     this.dataChange.next(data);

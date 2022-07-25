@@ -12,10 +12,12 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class TodoItemNode {
   children: TodoItemNode[];
   item: string;
+  id:number
 }
 
 /** Flat to-do item node with expandable and level information */
 export class TodoItemFlatNode {
+  id:number
   item: string;
   level: number;
   expandable: boolean;
@@ -26,7 +28,7 @@ export class TodoItemFlatNode {
  */
 const TREE_DATA = {
   Groceries: {
-    'Almond Meal flour': null,
+  'Almond Meal flour': null,
     'Organic eggs': null,
     'Protein Powder': null,
     Fruits: {
@@ -69,7 +71,7 @@ export class ChecklistDatabase {
       const value = obj[key];
       const node = new TodoItemNode();
       node.item = key;
-
+       
       if (value != null) {
         if (typeof value === 'object') {
           node.children = this.buildFileTree(value, level + 1);
@@ -82,18 +84,9 @@ export class ChecklistDatabase {
     }, []);
   }
 
-  /** Add an item to to-do list */
-  insertItem(parent: TodoItemNode, name: string) {
-    if (parent.children) {
-      parent.children.push({item: name} as TodoItemNode);
-      this.dataChange.next(this.data);
-    }
-  }
 
-  updateItem(node: TodoItemNode, name: string) {
-    node.item = name;
-    this.dataChange.next(this.data);
-  }
+
+
 }
 
 @Component({
@@ -286,12 +279,16 @@ export class CreateUserComponent implements OnInit {
           // Force update for the parent
           descendants.forEach(child => this.checklistSelection.isSelected(child));
           this.checkAllParentsSelection(node);
+
+          console.log(node.item)
+
         }
 
         /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
         todoLeafItemSelectionToggle(node: TodoItemFlatNode): void {
           this.checklistSelection.toggle(node);
           this.checkAllParentsSelection(node);
+          console.log(node)
         }
 
         /* Checks all the parents when a leaf node is selected/unselected */
@@ -339,6 +336,6 @@ export class CreateUserComponent implements OnInit {
           return null;
         }
 
-       
+
 
 }

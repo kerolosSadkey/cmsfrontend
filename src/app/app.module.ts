@@ -19,6 +19,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 2
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TreeviewModule } from 'ngx-treeview';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgMultiSelectDropDownModule,
     NgbModule,
     NgxPaginationModule,
+    TreeviewModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
