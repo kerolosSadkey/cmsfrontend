@@ -8,7 +8,31 @@ export const MENU: MenuItem[] = [
     link: '/dashboard',
     notify:false
   },
-
+  {
+    label: 'Capturing',
+    icon: 'layers',
+    subItems: [
+      {
+        label: 'Add File',
+        link: 'Inbound',
+        notify:true
+      },
+      {
+        label: 'Uplode Bulk Files',
+        link: '/apps/email/read',
+        notify:false
+      },
+      {
+        label: 'Emails',
+        link: '/apps/email/read',
+        notify:false
+      },
+      {
+        label: 'Scan',
+        link: '/apps/email/read'
+      },
+    ]
+  },
   {
     label: 'Inbound',
     icon: 'mail',
